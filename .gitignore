@@ -58,8 +58,8 @@ test_tasks_temp.db
 
 # OS & IDE
 .DS_Store
-Thumbs.db
 .vscode/
 .idea/
 *.log
 scratch/
+qwen_tts_repo/

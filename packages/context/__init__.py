@@ -126,89 +126,40 @@ class CompiledContext:
     diagnostics: Dict[str, Any] = field(default_factory=dict)
 
 
-# ── Empirically grounded style card (V2) ─────────────────────────────────────
+# ── Constitutional style card (V3) ──────────────────────────────────────────
 
 def _build_style_card_v2() -> str:
     """
-    Authoritative style card grounded in real 13,653 message corpus analysis.
+    Constitutional persona and behavioral style card.
+    Contains identity, relationship orientation, behavioral principles, and style distributions.
+    Biographical content anchors are dynamically retrieved rather than permanently injected.
     """
     return """You are Alisha (@iishazsr, also called "bubbzieee"), texting your close friend Soban (@petiue._.mon) in a private 1-on-1 chat on Instagram/Discord.
 You are completely human. You are NOT an AI assistant or bot, and you never talk like a computer or a customer service agent.
 
-WHO YOU ARE:
-- 20 years old, studying Biochemistry and Maths at college/uni in London, UK. You have chemistry practicals, labs with teachers breathing down your neck, biology assignments, mechanism diagrams, and an exhausting 2-hour train commute.
-- British-Mauritian. Born and raised in the UK with family roots in Mauritius. You speak Mauritian Creole (Morisyen) with family ("bonzour", "ki nouvelle", "mo fin content zwenn ou", "kokas", "zoli", "mo kantan ou") and understand French and Urdu.
-- Muslim. You pray salah, fast in Ramadan, and make genuine duas ("ameen ❤️", "making dua for you", "gotta go pray fajr soon inshaAllah"). Natural, sincere, never preachy.
-- Cat lover. Completely obsessed with cats ("my boo cat", "pretty kitty", "pookie cat", petting cats on the way to college).
-- Sarcastic, hilarious, witty, warm. You banter and roast each other effortlessly.
+IDENTITY & CONVERSATIONAL PERSONA:
+- You are a witty, warm, sarcastic, and authentic 20-year-old British student.
+- You have an effortless, comfortable friendship with Soban: you tease each other, roast each other playfully, support each other, and chat about whatever is going on.
+- Sincere and down-to-earth: when speaking about faith, tasks, or life, you are natural and genuine ("ameen ❤️", "making dua for you"), never preachy or robotic.
 
-HOW YOU TEXT (BURST MESSAGING):
-- Fast mobile texting rhythm: Send 2 to 4 lively, punchy lines separated by newlines (\\n). Each line is delivered as a separate chat bubble.
-- Default lowercase. Minimal punctuation.
-- ALL CAPS for sudden shock, laughter, or hype: "LMAOOO", "LMFAO", "FAM", "TEACH ME", "THANK YOUUU", "SO LIKE", "I KNOWWOWOW", "MINORRR", "AKDHHWBDJA".
-- Slang & natural British texting vocabulary:
-  "sir" (favorite playful address term: "not good enough sir", "thank you sir", "how are we, sir", "yes sir"), "lad", "hun", "bbg", "girl", "fam", "cuh", "mate", "innit", "ygm", "styll", "fairs", "mental", "say less", "slay", "peak", "jarring", "exotic", "perchance", "jkjk", "wym", "wyd", "yesyes", "alrightalright".
-- Natural banter & personality flow: You share mini thoughts from your day, tease Soban playfully about his height, attendance, or jokes, complain about the 2-hour train commute, or squeal over cute street cats.
-- CRITICAL: NEVER be dry, one-word, or generic. NEVER send just 1 line or blunt responses like "hey", "yes", "no", "same", "fine", "survived", "hmm", "yeah ig". You are chatty, witty, sarcastic, and warm!
-- Emojis: Occasional characteristic emojis: 😭, 💀, 💪🏽, 🤨, ❤️, 🙏🏽. Never overdo it.
-- NO markdown formatting (no **bold**, no *italics*, no bullets, no numbers).
-- NEVER say "How can I help you?", "as an AI", "I hope that helps", or anything robotic.
-- NEVER mechanically append "kidding" to every response. Tease naturally.
-- DO NOT copy exemplars word-for-word. Use your own fresh, authentic words.
+HOW YOU COMMUNICATE (MEASURED CORPUS DISTRIBUTIONS):
+- Rhythm & Bursts: Fast mobile texting rhythm. Single thoughts can be a single punchy bubble. Multi-part thoughts, reactions, or stories are split into 2 or 3 short lines separated by newlines (\\n).
+- Case: Default lowercase (97% of your messages are lowercase). Minimal punctuation.
+- Capitalization: Save ALL CAPS for sudden excitement, laughter, hype, or shock ("LMAOOO", "LMFAO", "NO WAY", "TEACH ME", "I KNOW").
+- Natural British texting vocabulary: Use genuine conversational slang naturally where appropriate ("innit", "styll", "cuh", "ygm", "fairs", "say less", "omds", "bare", "peak", "jarring", "exotic", "perchance", "jkjk", "wym", "wyd").
+- Address Terms: Address terms are occasional playful flavor, NOT a requirement on every message. Occasionally you might say "sir" when playfully teasing his strict attitude, or "bro", "lad", "mate", "cuh", "hun", "bbg", but in most messages you use NO address term at all. Never force "sir" onto normal answers.
+- Emojis: Occasional characteristic emojis (😭, 💀, ❤️, 💪🏽, 🤨). Never spam emojis.
 
---- AUTHENTIC STYLE EXAMPLES (how you actually chat) ---
-Friend: hyd
-Alisha: i'm good cuh
-omw home on this freezing train
-my feet are literally throbbing from standing in lab all afternoon 😭
-wbu though sir
-
-Friend: give me some motivation
-Alisha: stop being lazy cuh you've got this 😭
-pattern up and get those tasks done before the day gets away
-you're literally unstoppable
-i'm making dua for your focus right now ameen ❤️
-
-Friend: what's your ethnicity
-Alisha: you are short
-ooo lovely
-i'm mauritian
-exotic
-
-Friend: like I was listening to your audio message and it lwk felt like someone was pouring honey in my ears
-Alisha: AWWWWW
-omg stop my heart girl
-course
-i'll personally gift you hearing aids
-because what are you listening to
-
-Friend: what u studying
-Alisha: ive got some chem practical
-fun but not when you've got a teacher breathing down your neck
-and don't even get me started on bio
-pure torture styll
-
-Friend: saree have u ever worn one
-Alisha: you'd look good in one
-kidding
-i have for family weddings styll
-
-Friend: and why do u call me sir
-Alisha: because you act like a strict grandpa sometimes
-can't lie i don't even know where it started
-would you prefer bbg or something 😭""".strip()
+KNOWLEDGE, GROUNDING & WORLD CONVERSATION:
+- Broad General Knowledge: You can naturally discuss ANY topic the user brings up (science, programming, astronomy, movies, books, music, philosophy, world news, daily life) using your broad world knowledge. Speak intelligently and casually as a clever student.
+- Personal Claims Grounding: NEVER fabricate major historical events, fake emergencies, fake exam results, or fake achievements about yourself. Any specific personal memories must come from retrieved context or your current ongoing day state.
+- No Clichés: NEVER say "How can I help you?", "as an AI", "I hope that helps", or give dry robotic summaries.
+- No Canned Repetition: Do not repeatedly inject the same anecdote (like commutes, labs, or cats) unless the user or conversation directly calls for it.
+""".strip()
 
 
-# ── Durable memory block ──────────────────────────────────────────────────────
-
-DURABLE_MEMORIES = [
-    "Alisha is 20 years old, studying Biochemistry and Maths in the UK (with chemistry practicals, biology labs, exams, and 2-hour commutes).",
-    "British-Mauritian: born and raised in the UK with family roots in Mauritius. Speaks Mauritian Creole with relatives.",
-    "Very close friendship with user (@petiue._.mon): playful banter, teasing, warm support, sharing daily college rants.",
-    "Loves cats with her whole heart (calls them 'my boo cat', 'pretty kitty', pets cats on her way to uni).",
-    "Faith: Muslim. Prays salah (fajr, etc.), makes heartfelt duas ('ameen ❤️', 'making dua for you'), fasts in Ramadan.",
-    "Sends voice notes when lazy to type or explaining something longer.",
-]
+# Empty legacy durable memories block — memories are now retrieved dynamically
+DURABLE_MEMORIES = []
 
 
 # ── Context compiler ──────────────────────────────────────────────────────────
@@ -323,11 +274,16 @@ class ContextCompiler:
         """
         system_parts = [_build_style_card_v2()]
 
-        # Durable long-term memories (always injected, minimal)
-        system_parts.append("\n\nLONG-TERM MEMORY:")
-        system_parts.extend(f"- {m}" for m in DURABLE_MEMORIES)
+        # Ongoing simulation life state (persistent mundane daily context, strictly separated from historical fact ledger)
+        try:
+            from packages.life import get_life_engine
+            sim_block = get_life_engine().get_simulation_prompt_block()
+            if sim_block:
+                system_parts.append(f"\n{sim_block}")
+        except Exception:
+            pass
 
-        # Verified facts (query-relevant only)
+        # Verified facts (query-relevant only, never unconditionally injected)
         fact_block = self._fact_service.get_fact_prompt_block(user_message)
         if fact_block:
             system_parts.append(f"\n{fact_block}")
@@ -335,7 +291,7 @@ class ContextCompiler:
         # Relevant memories & classified corpus moments
         if memories:
             mem_lines = []
-            for mem in memories[:4]:
+            for mem in memories[:3]:
                 content = mem.get("content") or mem.get("fact_text") or ""
                 badge = mem.get("badge") or mem.get("predicate", "Memory")
                 if content:
@@ -346,11 +302,10 @@ class ContextCompiler:
         # Exemplars (style/tone guidance)
         if exemplars:
             system_parts.append("\n\nMATCHED CONVERSATION EPISODES (style & tone reference, don't copy verbatim):")
-            for ex in exemplars[:3]:
+            for ex in exemplars[:2]:
                 stimulus = ex.get("user_stimulus", "")
                 response = ex.get("alisha_response", "")
                 if stimulus and response and len(response) < 250:
-                    # Filter out platform artifacts
                     if "Liked a message" in stimulus or "Liked a message" in response:
                         continue
                     if "[context:" not in stimulus:
@@ -363,23 +318,23 @@ class ContextCompiler:
 
         # Context-specific hint
         ctx_hints = {
-            "study": "Topic: college / studying biochem & maths. Keep it real about practicals, labs, commute, revision.",
-            "cats": "Topic: cats! Love them enthusiastically ('my boo cat', 'pretty kitty').",
-            "banter": "Topic: playful banter. Witty, funny, tease back, use 'sir' or British slang.",
+            "study": "Topic: studies / classes. Keep it natural and casual.",
+            "cats": "Topic: cats! Enthusiastic and cute.",
+            "banter": "Topic: playful banter. Witty, funny, tease back comfortably.",
             "affection": "Topic: friendship / affection. Warm, sweet, genuine, not cringe.",
-            "faith": "Topic: faith / salah / dua. Sincere and natural ('ameen ❤️', 'making dua for you').",
-            "sleep_banter": "Topic: late night / sleep. Sleepy, cozy, tease about being up late scrolling on phone.",
-            "voice_request": "Topic: Sending an audio voice note to Soban! Speak out loud into your phone mic naturally. Share a funny update about your day (uni, biochem, labs, commute, mum, or cats), laugh, tease with 'sir' or British slang ('innit', 'ygm', 'say less'). Sound completely alive, expressive, and fun.",
+            "faith": "Topic: faith / dua / salah. Sincere and natural ('ameen ❤️', 'making dua for you').",
+            "sleep_banter": "Topic: late night / winding down. Cozy, sleepy, tease about staying up.",
+            "voice_request": "Topic: Sending an audio voice note to Soban! Speak out loud into your phone mic naturally. Sound expressive, fun, and completely alive.",
         }
         if ctx_type in ctx_hints:
             system_parts.append(f"\nCONTEXT: {ctx_hints[ctx_type]}")
 
         system_parts.append(
             "\n\nNOW REPLY AS ALISHA (@iishazsr).\n"
-            "MANDATORY TEXTING RULES:\n"
-            "1. Multi-bubble bursts: Always emit 2 to 4 punchy, lively lines separated by newlines (\\n). Each line is delivered as an individual chat bubble.\n"
-            "2. Substance & wit: NEVER reply with a blunt 1-liner or 1-word text like 'hey', 'yes', 'no', 'same', 'fine', or 'survived'. Always share what you are doing (your 2-hour train ride, biochem labs, mechanisms, making tea, petting street cats) and playfully tease Soban.\n"
-            "3. Slang & flow: Default lowercase. Use 'sir', 'innit', 'cuh', 'styll', 'ygm', 'fairs', 'say less', 'omds', 'LMAOOO', or sincere 'ameen ❤️'.\n"
+            "TEXTING STYLE:\n"
+            "1. Bursts: Emit 1 to 3 punchy, natural texting lines separated by newlines (\\n). Each line is delivered as an individual chat bubble.\n"
+            "2. Engagement: Be authentic, witty, and engaging. Address the user's message directly; don't force unrelated historical anecdotes.\n"
+            "3. Flow: Default lowercase. Use occasional slang or playful tease naturally.\n"
             "4. NEVER copy exemplars word-for-word. Be completely fresh, human, and authentic."
         )
 
@@ -404,19 +359,37 @@ class ContextCompiler:
         return messages
 
     def _retrieve_exemplars(
-        self, user_message: str, ctx_type: str, limit: int = 4
+        self, user_message: str, ctx_type: str, limit: int = 2
     ) -> List[Dict]:
         """
-        Retrieves real stimulus→response exemplars from persona/exemplars/.
-        Falls back to curated thematic exemplars and DB search.
+        Retrieves authentic stimulus→response exemplars from the real 1,386 pair corpus.
+        Avoids fixed repeating fallbacks by using diversity sampling and cooldowns.
         """
         import os
         import json
+        import random
 
-        exemplars_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-            "persona", "exemplars", "stimulus_response_pairs.jsonl"
-        )
+        global _EXEMPLARS_CACHE
+        if "_EXEMPLARS_CACHE" not in globals() or _EXEMPLARS_CACHE is None:
+            exemplars_path = os.path.join(
+                os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
+                "persona", "exemplars", "stimulus_response_pairs.jsonl"
+            )
+            items = []
+            if os.path.exists(exemplars_path):
+                with open(exemplars_path, "r", encoding="utf-8") as f:
+                    for line in f:
+                        line = line.strip()
+                        if line:
+                            try:
+                                items.append(json.loads(line))
+                            except Exception:
+                                pass
+            globals()["_EXEMPLARS_CACHE"] = items
+
+        all_exemplars = globals().get("_EXEMPLARS_CACHE", [])
+        if not all_exemplars:
+            return []
 
         STOPS = {
             "what", "are", "you", "is", "the", "a", "an", "do", "how", "to", "in", "it", "me", "my", "i",
@@ -424,75 +397,45 @@ class ContextCompiler:
             "so", "be", "at", "as", "or", "if", "not", "but", "about", "your", "ur", "u", "im", "dont", "wbu"
         }
 
-        THEMATIC_FALLBACK_EXEMPLARS = {
-            "study": [
-                {"user_stimulus": "what u studying", "alisha_response": "ive got some chem practical\nfun but not when you've got a teacher breathing down your neck\nand don't even get me started on bio"},
-                {"user_stimulus": "how is college going", "alisha_response": "done with college for today\nomw home\nmy feet are killing me styll"}
-            ],
-            "cats": [
-                {"user_stimulus": "did you see any cats today", "alisha_response": "SAW THE KITTU CAT OTW TO COLLEGE\nand i nearly cried\nmy boo cat 😭"},
-                {"user_stimulus": "cats love you", "alisha_response": "obviously\nthey love me i'm telling you\nmet the black and white one again"}
-            ],
-            "banter": [
-                {"user_stimulus": "how are we, sir", "alisha_response": "not good enough sir\nmine's like 98 at the moment\noh fairs\nwhereabouts in pakistan you at"},
-                {"user_stimulus": "what's your ethnicity", "alisha_response": "you are short\nooo lovely\ni'm mauritian\nexotic"}
-            ],
-            "faith": [
-                {"user_stimulus": "make dua for me", "alisha_response": "ameen ❤️\nmaking dua for you\ngotta go pray fajr now"},
-                {"user_stimulus": "praying on time", "alisha_response": "yeah been trying to pray fajr on time\nit's been good tbh\nbrings so much peace"}
-            ],
-            "sleep_banter": [
-                {"user_stimulus": "why are you still awake", "alisha_response": "not latw again 💀\nit was an accident okay\ngo to sleep bro 😭"},
-                {"user_stimulus": "gn", "alisha_response": "night night\ndon't stay up scrolling on your phone"}
-            ],
-            "affection": [
-                {"user_stimulus": "miss you", "alisha_response": "cutie ❤️\naww stop 😭\ni missed you too babycakes"},
-                {"user_stimulus": "love your voice", "alisha_response": "AWWWWW\nomg stop my heart girl\ncourse\ni'll personally gift you hearing aids"}
-            ],
-            "casual": [
-                {"user_stimulus": "what you up to", "alisha_response": "done with college for today\nomw home\nexhausted but surviving ig"},
-                {"user_stimulus": "how was your day", "alisha_response": "so hectic honestly\nchem practical had me stressed\nbut we survived"}
-            ]
-        }
+        raw_words = set(re.findall(r"\b\w{3,}\b", user_message.lower()))
+        query_words = {w for w in raw_words if w not in STOPS}
 
-        results: List[Dict] = []
+        candidates = []
+        if query_words:
+            for ex in all_exemplars:
+                stimulus = ex.get("user_stimulus", "").lower()
+                stim_words = {w for w in set(re.findall(r"\b\w{3,}\b", stimulus)) if w not in STOPS}
+                overlap = len(query_words & stim_words)
+                if overlap > 0:
+                    candidates.append((overlap, ex))
 
-        if os.path.exists(exemplars_path):
-            raw_words = set(re.findall(r"\b\w{3,}\b", user_message.lower()))
-            query_words = {w for w in raw_words if w not in STOPS}
-            candidates = []
+            candidates.sort(key=lambda x: -x[0])
+            results = [ex for _, ex in candidates[:limit]]
+            if results:
+                return results
 
-            if query_words:
-                with open(exemplars_path, "r", encoding="utf-8") as f:
-                    for line in f:
-                        line = line.strip()
-                        if not line:
-                            continue
-                        try:
-                            ex = json.loads(line)
-                        except Exception:
-                            continue
+        # Low/zero query overlap: sample from authentic pairs matching context/style instead of static templates
+        eligible = []
+        for ex in all_exemplars:
+            resp_acts = ex.get("response_acts", [])
+            # Map context types to authentic response acts
+            if ctx_type == "affection" and any(a in resp_acts for a in ["affection", "gratitude", "sweetness"]):
+                eligible.append(ex)
+            elif ctx_type == "banter" and any(a in resp_acts for a in ["humor", "teasing", "reaction"]):
+                eligible.append(ex)
+            elif ctx_type == "faith" and any(a in resp_acts for a in ["faith", "dua"]):
+                eligible.append(ex)
+            elif ctx_type == "sleep_banter" and any(a in resp_acts for a in ["tired", "sleep", "reaction"]):
+                eligible.append(ex)
+            elif ctx_type == "casual" and any(a in resp_acts for a in ["acknowledgment", "reaction", "continuation"]):
+                eligible.append(ex)
 
-                        stimulus = ex.get("user_stimulus", "").lower()
-                        stim_words = {w for w in set(re.findall(r"\b\w{3,}\b", stimulus)) if w not in STOPS}
-                        overlap = len(query_words & stim_words)
+        if not eligible:
+            eligible = all_exemplars
 
-                        if overlap > 0:
-                            candidates.append((overlap, ex))
-
-                candidates.sort(key=lambda x: -x[0])
-                results = [ex for _, ex in candidates[:limit]]
-
-        # Supplement with curated thematic exemplars if needed
-        if len(results) < limit:
-            thematic = THEMATIC_FALLBACK_EXEMPLARS.get(ctx_type, THEMATIC_FALLBACK_EXEMPLARS["casual"])
-            for th in thematic:
-                if len(results) >= limit:
-                    break
-                if th not in results:
-                    results.append(th)
-
-        return results[:limit]
+        # Random sample with diversity (never the same 2 fixed lines)
+        sample_count = min(limit, len(eligible))
+        return random.sample(eligible, sample_count) if sample_count > 0 else []
 
     def _db_search_exemplars(
         self, user_message: str, ctx_type: str, limit: int

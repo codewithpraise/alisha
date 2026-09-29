@@ -359,27 +359,35 @@ class ResponseBehaviorPlanner:
         return mode_lengths.get(mode, ("medium", 45, 200))
 
     def _determine_burst(self, mode: str, acts: List[str]) -> int:
-        # Standard Alisha texting flow: always 2 to 4 bubbles (median 3)
+        # Grounded in persona/burst_profile.json (median 2, 1-3 bubbles)
+        r = random.random()
         if mode in ["excited", "teasing", "playful"]:
-            r = random.random()
             if r < 0.20:
-                return 2
+                return 1
             elif r < 0.70:
-                return 3
-            else:
-                return 4
-        elif mode in ["serious", "supportive"]:
-            return 3 if random.random() < 0.75 else 2
-        elif mode in ["farewell", "low_energy"]:
-            return 2 if random.random() < 0.70 else 3
-        else:
-            r = random.random()
-            if r < 0.25:
                 return 2
-            elif r < 0.80:
-                return 3
             else:
-                return 4
+                return 3
+        elif mode in ["serious", "supportive"]:
+            if r < 0.35:
+                return 1
+            elif r < 0.85:
+                return 2
+            else:
+                return 3
+        elif mode in ["farewell", "low_energy"]:
+            if r < 0.65:
+                return 1
+            else:
+                return 2
+        else:
+            # Casual conversation
+            if r < 0.45:
+                return 1
+            elif r < 0.82:
+                return 2
+            else:
+                return 3
 
     def _determine_emoji_policy(self, mode: str, acts: List[str], context: str):
         emoji_prof = persona_loader.get_emoji_profile()

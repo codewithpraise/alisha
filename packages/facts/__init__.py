@@ -15,6 +15,7 @@ Key principles:
 
 import json
 import os
+import re
 import sqlite3
 import time
 import uuid
@@ -398,18 +399,33 @@ class FactService:
         """
         all_facts = self.lookup(subject=subject, include_unknown=False)
         q_lower = query.lower()
-        q_words = set(q_lower.split())
+        # Meaningful query words (exclude stop words and short particles)
+        STOP_WORDS = {
+            "what", "where", "when", "why", "who", "which", "how", "are", "you", "your",
+            "is", "the", "a", "an", "do", "to", "in", "it", "me", "my", "i", "was", "were",
+            "and", "on", "that", "this", "can", "with", "have", "had", "just", "like", "for",
+            "so", "be", "at", "as", "or", "if", "not", "but", "about", "ur", "u", "im",
+            "dont", "wbu", "hey", "hi", "hello", "yo", "sup", "okay", "alisha", "tell"
+        }
+        q_clean_words = {w for w in re.findall(r"\b\w{3,}\b", q_lower) if w not in STOP_WORDS}
+        if not q_clean_words:
+            return []
 
         scored = []
         for fact in all_facts:
             # Relevance: does query mention the predicate or value?
-            pred_words = set(fact.predicate.lower().split("_"))
-            val_words = set(fact.value.lower().split())
-            overlap = len(q_words & (pred_words | val_words))
-            scored.append((overlap, fact))
+            pred_words = {w for w in fact.predicate.lower().split("_") if w not in STOP_WORDS}
+            val_words = {w for w in re.findall(r"\b\w{3,}\b", fact.value.lower()) if w not in STOP_WORDS}
+            target_words = pred_words | val_words
+            overlap = len(q_clean_words & target_words)
+            if overlap > 0:
+                scored.append((overlap, fact))
+
+        if not scored:
+            return []
 
         scored.sort(key=lambda x: (-x[0], -x[1].importance, -x[1].confidence))
-        return [f for _, f in scored[:6]]
+        return [f for _, f in scored[:3]]
 
     def add_fact(
         self,
