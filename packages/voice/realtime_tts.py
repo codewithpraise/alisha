@@ -1,14 +1,17 @@
 """
 Real-Time Authentic Voice Engine for Alisha.
-Prioritizes genuine Alisha recordings from her real voice corpus.
-Falls back to fine-tuned high-cadence British Neural TTS (Maisie) matching her exact pitch and speech tempo.
+Production Implementation:
+Uses Qwen3-TTS 12Hz 1.7B Base with canonical In-Context Learning (ICL) voice cloning.
+Conditioned on genuine Alisha reference audio (voice_v1/reference.wav) + transcript.
+Falls back to Edge TTS ONLY if explicitly permitted by configuration (ALLOW_STOCK_TTS_FALLBACK=true).
 """
 
 import asyncio
 import hashlib
 import os
 import re
-import random
+import time
+import threading
 from typing import Optional, Dict, Any, List
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -16,6 +19,14 @@ GEN_VOICE_DIR = os.path.join(ROOT, "voice", "generated")
 VOICE_DIR = os.path.join(ROOT, "voice")
 VOICE_V1_DIR = os.path.join(ROOT, "voice_v1")
 os.makedirs(GEN_VOICE_DIR, exist_ok=True)
+
+# Configuration flags
+USE_QWEN_TTS_SERVICE = os.environ.get("USE_QWEN_TTS_SERVICE", "true").lower() in ("true", "1")
+ALLOW_STOCK_TTS_FALLBACK = os.environ.get("ALLOW_STOCK_TTS_FALLBACK", "false").lower() in ("true", "1")
+QWEN_TTS_MODEL_PATH = os.environ.get("QWEN_TTS_MODEL_PATH", r"D:\models\Qwen3-TTS-12Hz-1.7B-Base")
+CANONICAL_PROMPT_PATH = os.path.join(VOICE_V1_DIR, "canonical_icl_prompt.pt")
+REF_AUDIO_PATH = os.path.join(VOICE_V1_DIR, "reference.wav")
+REF_TEXT_DEFAULT = "that's good, im okay. i'm just getting ready for uni tomorrow. don't wanna go, it's so jarring ugh, cuz it's like two to three umm hour travel"
 
 # Authentic Voice Corpus: 100% genuine recordings of Alisha (@iishazsr)
 AUTHENTIC_ALISHA_RECORDINGS = [
@@ -125,7 +136,7 @@ AUTHENTIC_ALISHA_RECORDINGS = [
     }
 ]
 
-# Neural TTS selection: en-GB-MaisieNeural is youthful, witty, fast British English (much closer to 20-year-old student than corporate Libby)
+# Neural TTS selection: emergency fallback only
 PRIMARY_VOICE = "en-GB-MaisieNeural"
 FALLBACK_VOICE = "en-GB-SoniaNeural"
 
@@ -206,12 +217,104 @@ def clean_text_for_speech(text: str) -> str:
     return t or "hey cutie"
 
 
+class Qwen3TTSVoiceEngine:
+    """
+    Singleton production voice cloning engine using Qwen3-TTS 12Hz 1.7B Base.
+    Keeps model warm in memory and caches canonical ICL prompt.
+    """
+    _instance = None
+    _lock = threading.Lock()
+
+    def __init__(self):
+        self.model = None
+        self.canonical_prompt = None
+        self._init_lock = threading.Lock()
+
+    @classmethod
+    def get_instance(cls) -> "Qwen3TTSVoiceEngine":
+        with cls._lock:
+            if cls._instance is None:
+                cls._instance = Qwen3TTSVoiceEngine()
+            return cls._instance
+
+    def _ensure_initialized(self):
+        with self._init_lock:
+            if self.model is not None and self.canonical_prompt is not None:
+                return
+
+            print(f"[Qwen3TTS] Initializing Qwen3-TTS Base model from: {QWEN_TTS_MODEL_PATH}")
+            import torch
+            from qwen_tts import Qwen3TTSModel, VoiceClonePromptItem
+
+            # Set torch threads for optimal CPU performance
+            num_cores = max(1, (os.cpu_count() or 4) - 1)
+            torch.set_num_threads(num_cores)
+
+            self.model = Qwen3TTSModel.from_pretrained(
+                QWEN_TTS_MODEL_PATH,
+                dtype=torch.bfloat16
+            )
+
+            if os.path.exists(CANONICAL_PROMPT_PATH):
+                print(f"[Qwen3TTS] Loading canonical prompt from: {CANONICAL_PROMPT_PATH}")
+                self.canonical_prompt = torch.load(CANONICAL_PROMPT_PATH, map_location="cpu", weights_only=False)
+            else:
+                print(f"[Qwen3TTS] Building canonical prompt from {REF_AUDIO_PATH}...")
+                self.canonical_prompt = self.model.create_voice_clone_prompt(
+                    ref_audio=REF_AUDIO_PATH,
+                    ref_text=REF_TEXT_DEFAULT,
+                    x_vector_only_mode=False
+                )
+                torch.save(self.canonical_prompt, CANONICAL_PROMPT_PATH)
+                print(f"[Qwen3TTS] Saved canonical prompt to: {CANONICAL_PROMPT_PATH}")
+
+    def synthesize(self, text: str, speed: float = 1.0) -> Optional[str]:
+        import soundfile as sf
+
+        clean_text = clean_text_for_speech(text)
+        print(f"[RealTimeTTS] TTS_TEXT_RAW: {text}")
+        print(f"[RealTimeTTS] TTS_TEXT_NORMALIZED: {clean_text}")
+
+        # Unique audio cache key based on clean text and model
+        text_hash = hashlib.md5(f"qwen3_12hz_{clean_text}".encode("utf-8")).hexdigest()[:16]
+        out_filename = f"alisha_qwen_{text_hash}.wav"
+        out_path = os.path.join(GEN_VOICE_DIR, out_filename)
+
+        if os.path.exists(out_path) and os.path.getsize(out_path) > 1000:
+            return f"/voice/generated/{out_filename}"
+
+        self._ensure_initialized()
+
+        # Calculate tight max_new_tokens budget (12.5 codec frames per second)
+        word_count = len(clean_text.split())
+        token_budget = max(40, min(180, int(word_count * 15)))
+
+        t0 = time.time()
+        wavs, fs = self.model.generate_voice_clone(
+            text=clean_text,
+            voice_clone_prompt=self.canonical_prompt,
+            do_sample=True,
+            top_k=50,
+            top_p=1.0,
+            temperature=0.9,
+            repetition_penalty=1.05,
+            max_new_tokens=token_budget
+        )
+        dur_s = time.time() - t0
+        wav = wavs[0]
+        sf.write(out_path, wav, fs)
+        audio_dur = len(wav) / fs
+        print(f"[RealTimeTTS] Synthesized {audio_dur:.2f}s audio in {dur_s:.2f}s -> {out_filename}")
+
+        return f"/voice/generated/{out_filename}"
+
+
 async def _synthesize_async(text: str, voice: str = PRIMARY_VOICE, speed: float = 1.0) -> str:
+    """Emergency stock fallback using Edge TTS."""
     import edge_tts
 
     clean_text = clean_text_for_speech(text)
 
-    # Stable cache key based on content and speed
     cache_key = f"{voice}_{speed:.2f}_{clean_text}"
     file_hash = hashlib.md5(cache_key.encode("utf-8")).hexdigest()[:16]
     out_filename = f"alisha_{file_hash}.mp3"
@@ -220,19 +323,17 @@ async def _synthesize_async(text: str, voice: str = PRIMARY_VOICE, speed: float 
     if os.path.exists(out_path) and os.path.getsize(out_path) > 500:
         return f"/voice/generated/{out_filename}"
 
-    # Rate formatting: Alisha speaks faster with natural British student tempo (+14% base)
     base_rate_delta = 14
     rate_percent = int(base_rate_delta + (speed - 1.0) * 100)
     rate_str = f"{rate_percent:+d}%"
 
-    # Try youthful Maisie first, then Sonia fallback
     for v in [voice, FALLBACK_VOICE]:
         try:
             communicate = edge_tts.Communicate(
                 text=clean_text,
                 voice=v,
                 rate=rate_str,
-                pitch="+4Hz"  # Natural youthful speaking pitch
+                pitch="+4Hz"
             )
             await communicate.save(out_path)
             if os.path.exists(out_path) and os.path.getsize(out_path) > 500:
@@ -246,11 +347,26 @@ async def _synthesize_async(text: str, voice: str = PRIMARY_VOICE, speed: float 
 def synthesize_speech(text: str, voice: str = PRIMARY_VOICE, speed: float = 1.0, user_prompt: str = "") -> Optional[str]:
     """
     Dynamically synthesizes new speech for Alisha's generated text response.
-    Always generates a unique, newly spoken voice message for every conversation turn.
+    Primary path: Official Qwen3-TTS 12Hz Base with authentic voice clone prompt.
+    Fallback policy: Stock Edge TTS allowed ONLY when ALLOW_STOCK_TTS_FALLBACK=true.
     """
     if not text or not text.strip():
         text = "hey cutie"
 
+    if USE_QWEN_TTS_SERVICE:
+        try:
+            engine = Qwen3TTSVoiceEngine.get_instance()
+            return engine.synthesize(text, speed=speed)
+        except Exception as e:
+            print(f"[RealTimeTTS Qwen Error] {e}")
+            if not ALLOW_STOCK_TTS_FALLBACK:
+                # Per Phase 35: Never silently fall back to stock Edge TTS unless explicitly allowed
+                raise RuntimeError(
+                    f"Qwen3-TTS generation failed and ALLOW_STOCK_TTS_FALLBACK=false. Error: {e}"
+                )
+            print("[RealTimeTTS] Falling back to emergency stock TTS due to explicit ALLOW_STOCK_TTS_FALLBACK=true")
+
+    # Stock fallback (only reachable if ALLOW_STOCK_TTS_FALLBACK=true or USE_QWEN_TTS_SERVICE=false)
     try:
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
@@ -258,5 +374,5 @@ def synthesize_speech(text: str, voice: str = PRIMARY_VOICE, speed: float = 1.0,
         loop.close()
         return url
     except Exception as e:
-        print(f"[RealTimeTTS Error] {e}")
+        print(f"[RealTimeTTS Stock Fallback Error] {e}")
         return "/voice/1242969967588294.wav"

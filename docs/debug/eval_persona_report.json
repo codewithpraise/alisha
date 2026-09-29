@@ -1,0 +1,25 @@
+{
+  "total_turns": 18,
+  "total_bubbles": 22,
+  "mean_bubble_length": 28.4,
+  "lowercase_rate": 0.9545,
+  "js_burst_divergence": 0.1064,
+  "gen_burst_distribution": {
+    "1": 0.6111111111111112,
+    "2": 0.2222222222222222,
+    "3": 0.05555555555555555,
+    "0": 0.1111111111111111
+  },
+  "gt_burst_distribution": {
+    "1": 0.4954439499894045,
+    "2": 0.30493748675566856,
+    "3": 0.14706505615596524,
+    "4": 0.05255350709896164
+  },
+  "gen_sir_rate": 0.0,
+  "gt_sir_rate": 0.0083,
+  "gen_emoji_rate": 0.1818,
+  "gt_emoji_rate": 0.0869,
+  "forced_biochem_on_unrelated": 0,
+  "persona_collapse_resolved": true
+}
