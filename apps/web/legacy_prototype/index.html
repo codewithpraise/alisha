@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="after-hours">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>alisha bubbzieee</title>
+
+  <!-- PWA & Mobile Meta -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#161113" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="alisha bubbzieee" />
+  <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg" />
+
+  <!-- Typography: Fraunces (Editorial Soft Serif), Instrument Sans (UI), JetBrains Mono (Tabular) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="viewport-wrapper">
+    <div class="phone-frame">
+
+      <!-- Global App Header -->
+      <header class="app-header">
+        <div class="brand-title" id="headerProfileTrigger" onclick="openProfileSheet()" title="Open profile & settings">
+          <div class="presence-dot-wrap">
+            <span class="presence-dot" id="headerPresenceDot"></span>
+          </div>
+          <div class="header-text-group">
+            <span class="brand-name">alisha bubbzieee</span>
+            <span class="header-presence-sub" id="headerPresenceSub">awake</span>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="icon-btn" onclick="openProfileSheet()" title="Settings & customizations" aria-label="Open settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Screen Stack -->
+      <main class="screen-container">
+
+        <!-- SCREEN 1: CHAT (PRIMARY HOME TAB) -->
+        <section class="view-screen active" id="screen-chat">
+          <div class="chat-screen-wrap">
+
+            <div class="chat-thread" id="chatThread">
+              <div class="date-separator">earlier today</div>
+
+              <!-- Initial authentic thread snippets -->
+              <div class="msg-burst user" data-id="m1">
+                <div class="bubble">dunno what exactly u meant by that but yeah ig</div>
+              </div>
+
+              <div class="msg-burst alisha" data-id="m2">
+                <div class="bubble">i don't know it just reminded me of the song</div>
+                <div class="bubble">like</div>
+                <div class="bubble">hot and cold situation innit</div>
+              </div>
+
+              <!-- Authentic Voice note bubble -->
+              <div class="msg-burst alisha" data-id="m3">
+                <div class="voice-bubble" onclick="toggleVoiceNotePlayback('/voice/1303735758283391.wav')">
+                  <button class="vn-play-btn" id="vnPlayBtn" title="Play voice note">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  </button>
+                  <div class="vn-waveform-wrap">
+                    <div class="waveform-bars" id="waveformBars">
+                      <div class="waveform-bar" style="height: 8px;"></div>
+                      <div class="waveform-bar" style="height: 14px;"></div>
+                      <div class="waveform-bar" style="height: 20px;"></div>
+                      <div class="waveform-bar" style="height: 12px;"></div>
+                      <div class="waveform-bar" style="height: 18px;"></div>
+                      <div class="waveform-bar" style="height: 22px;"></div>
+                      <div class="waveform-bar" style="height: 16px;"></div>
+                      <div class="waveform-bar" style="height: 10px;"></div>
+                      <div class="waveform-bar" style="height: 14px;"></div>
+                      <div class="waveform-bar" style="height: 19px;"></div>
+                      <div class="waveform-bar" style="height: 13px;"></div>
+                      <div class="waveform-bar" style="height: 7px;"></div>
+                    </div>
+                    <span class="vn-duration" id="vnDuration">0:17</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="msg-burst user" data-id="m4">
+                <div class="bubble">not latw again 💀</div>
+              </div>
+
+              <div class="msg-burst alisha" data-id="m5">
+                <div class="bubble">bro i was literally so busy with mum 😭</div>
+                <div class="bubble">stop making fun of my typos</div>
+              </div>
+
+              <!-- Typing Indicator Row -->
+              <div class="typing-indicator-row" id="typingIndicatorRow">
+                <div class="typing-bubble" id="typingBubble">
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                </div>
+                <span class="typing-label" id="typingLabel">typing…</span>
+              </div>
+            </div>
+
+            <!-- Chat Input Bar with Rotating Placeholder -->
+            <div class="chat-input-bar">
+              <button class="icon-btn" id="micBtn" onclick="toggleVoiceInput()" title="Voice input" style="color: var(--text-secondary);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+              </button>
+
+              <input type="text" id="chatInput" class="chat-input-field" placeholder="say something…" onkeydown="handleChatInputKey(event)" autocomplete="off" />
+
+              <button class="chat-send-btn" id="sendBtn" onclick="sendMessage()" title="Send">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN 2: MEMORIES & FULL MESSAGE ARCHIVE -->
+        <section class="view-screen" id="screen-memories">
+          <div class="memories-content">
+            <!-- Fixed Inset Top Block -->
+            <div class="memories-top-block">
+              <h2 class="memories-title">shared memories</h2>
+              <p class="memories-subline">she remembers what mattered</p>
+
+              <div class="memories-search-wrap">
+                <svg class="search-icon-inside" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" class="memories-search-input" id="memoriesSearch" placeholder="search 13k+ messages, biochem, jokes…" oninput="handleMemorySearchInput(this.value)" />
+                <button class="search-clear-btn" id="searchClearBtn" onclick="clearMemoriesSearch()" title="Clear search">&times;</button>
+              </div>
+
+              <!-- Horizontally Scrollable Chips with Fade Masks -->
+              <div class="chips-scroll-wrap">
+                <div class="chips-row">
+                  <button class="category-chip active" id="chip-all" onclick="setMemoryFilter('all')">all</button>
+                  <button class="category-chip" id="chip-archive" onclick="setMemoryFilter('archive')">full conversation (13,653 msgs)</button>
+                  <button class="category-chip" id="chip-biochem" onclick="setMemoryFilter('biochem')">college & biochem</button>
+                  <button class="category-chip" id="chip-voice" onclick="setMemoryFilter('voice')">voice notes (87)</button>
+                  <button class="category-chip" id="chip-jokes" onclick="setMemoryFilter('jokes')">inside jokes</button>
+                  <button class="category-chip" id="chip-deen" onclick="setMemoryFilter('deen')">faith & dua</button>
+                </div>
+              </div>
+
+              <!-- Interactive Multi-Filter Bar for Full Archive Browsing -->
+              <div class="archive-filter-bar" id="archiveFilterBar">
+                <div class="filter-group">
+                  <span class="filter-label">Sender:</span>
+                  <div class="filter-segmented" id="senderFilterPills">
+                    <button class="filter-pill active" data-val="all" onclick="setArchiveSenderFilter('all')">All</button>
+                    <button class="filter-pill" data-val="alisha" onclick="setArchiveSenderFilter('alisha')">Alisha</button>
+                    <button class="filter-pill" data-val="user" onclick="setArchiveSenderFilter('user')">You</button>
+                  </div>
+                </div>
+
+                <div class="filter-group">
+                  <span class="filter-label">Order:</span>
+                  <div class="filter-segmented" id="orderFilterPills">
+                    <button class="filter-pill active" data-val="asc" onclick="setArchiveOrderFilter('asc')">Oldest First ⏳</button>
+                    <button class="filter-pill" data-val="desc" onclick="setArchiveOrderFilter('desc')">Newest First ⏱️</button>
+                  </div>
+                </div>
+
+                <div class="filter-group">
+                  <span class="filter-label">Type:</span>
+                  <div class="filter-segmented" id="typeFilterPills">
+                    <button class="filter-pill active" data-val="all" onclick="setArchiveTypeFilter('all')">All</button>
+                    <button class="filter-pill" data-val="voice" onclick="setArchiveTypeFilter('voice')">Voice Only</button>
+                    <button class="filter-pill" data-val="text" onclick="setArchiveTypeFilter('text')">Text Only</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Memory Cards & Archive Search List -->
+            <div class="memories-cards-container" id="memoryCardsList">
+              <!-- Dynamically populated from API & memory database -->
+            </div>
+          </div>
+        </section>
+
+        <!-- SCREEN 3: VOICE CALL SCREEN -->
+        <section class="view-screen" id="screen-voice">
+          <div class="voice-screen-wrap">
+            <!-- Aurora Blooming Mesh Background -->
+            <div class="aurora-mesh" id="auroraMesh"></div>
+
+            <!-- Top Header with explicit Close Cross Button -->
+            <div class="voice-top-bar">
+              <div class="voice-top-info">
+                <h2 class="voice-title">Alisha</h2>
+                <div class="voice-status-pill" id="voiceStatusPill">
+                  <span class="presence-dot" style="width: 5px; height: 5px;"></span>
+                  <span id="voiceStatusText">listening…</span>
+                </div>
+                <div class="voice-timer" id="voiceTimer">00:00</div>
+              </div>
+
+              <button class="voice-cross-btn" onclick="endVoiceCall()" title="Close voice call" aria-label="Close voice call">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+
+            <!-- Center Abstract Dusk Orb Avatar -->
+            <div class="voice-center-visual">
+              <div class="avatar-orb-halo" id="avatarOrbHalo"></div>
+              <div class="avatar-orb">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F4EEE9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.85;">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- 40-Bar Dual-Color Waveform Canvas -->
+            <div class="voice-waveform-container">
+              <canvas id="voiceWaveformCanvas" class="voice-waveform-canvas"></canvas>
+              <p class="voice-idle-hint" id="voiceIdleHint">hold the button, or just start talking</p>
+            </div>
+
+            <!-- Call Controls with Prominent Danger-Warm End Call Button -->
+            <div class="voice-controls-row">
+              <button class="voice-btn-ctrl" id="voiceMuteBtn" onclick="toggleMuteVoice()" title="Tap to talk / mute">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+              </button>
+
+              <button class="voice-end-btn" onclick="endVoiceCall()" title="End call">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+              </button>
+
+              <button class="voice-btn-ctrl active" id="voiceSpeakerBtn" onclick="toggleSpeakerVoice()" title="Speaker">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Bottom Navigation: 3 Tabs Only with Sliding Indicator -->
+      <nav class="bottom-nav">
+        <button class="nav-tab-btn active" data-target="chat" onclick="navigateTo('chat')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span class="nav-tab-label">chat</span>
+        </button>
+
+        <button class="nav-tab-btn" data-target="memories" onclick="navigateTo('memories')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span class="nav-tab-label">memories</span>
+        </button>
+
+        <button class="nav-tab-btn" data-target="voice" onclick="navigateTo('voice')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+          <span class="nav-tab-label">voice</span>
+        </button>
+
+        <!-- Sliding Underline Indicator -->
+        <div class="nav-slider-line" id="navSliderLine">
+          <div class="nav-slider-indicator"></div>
+        </div>
+      </nav>
+
+      <!-- PROFILE & CUSTOMIZATIONS BOTTOM SHEET -->
+      <div class="profile-modal-backdrop" id="profileSheetBackdrop" onclick="closeProfileSheetOnBackdrop(event)">
+        <div class="profile-sheet-card" id="profileSheetCard">
+          <div class="sheet-drag-handle"></div>
+
+          <!-- Sheet Header with prominent Close Cross Button -->
+          <div class="sheet-top-header">
+            <span class="sheet-category-title">companion settings</span>
+            <button class="sheet-close-cross-btn" onclick="closeProfileSheet()" title="Close sheet" aria-label="Close sheet">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+
+          <!-- Hero Orb & Intimate Day Counter -->
+          <div class="profile-hero">
+            <div class="profile-orb-small"></div>
+            <h3 class="profile-title-name">alisha bubbzieee</h3>
+            <p class="profile-day-counter" id="profileDayCounter">day 47 of knowing you</p>
+          </div>
+
+          <div class="human-stats-row">
+            <div class="human-stat-col">
+              <div class="human-stat-val" id="statCaps">almost never shouts</div>
+              <div class="human-stat-lbl">2.8% uppercase</div>
+            </div>
+            <div class="human-stat-col">
+              <div class="human-stat-val" id="statLength">26 chr median</div>
+              <div class="human-stat-lbl">8 words average</div>
+            </div>
+            <div class="human-stat-col">
+              <div class="human-stat-val" id="statVoice">2.5 burst</div>
+              <div class="human-stat-lbl">mean msgs/turn</div>
+            </div>
+          </div>
+
+          <!-- 4-Theme Swatches Picker -->
+          <h4 class="section-subhead">warmth & theme</h4>
+          <div class="theme-swatches-grid">
+            <div class="theme-swatch-card active" data-theme-name="after-hours" onclick="selectTheme('after-hours')">
+              <div class="swatch-color-circle" style="background: #161113; border: 1px solid #E8A58F;"></div>
+              <span class="swatch-name">After Hours</span>
+            </div>
+            <div class="theme-swatch-card" data-theme-name="low-light" onclick="selectTheme('low-light')">
+              <div class="swatch-color-circle" style="background: #1E191B; border: 1px solid #E8A0A8;"></div>
+              <span class="swatch-name">Low Light</span>
+            </div>
+            <div class="theme-swatch-card" data-theme-name="paper" onclick="selectTheme('paper')">
+              <div class="swatch-color-circle" style="background: #FAF5F1; border: 1px solid #C4737F;"></div>
+              <span class="swatch-name">Paper</span>
+            </div>
+            <div class="theme-swatch-card" data-theme-name="blush-hour" onclick="selectTheme('blush-hour')">
+              <div class="swatch-color-circle" style="background: #221418; border: 1px solid #F0AEB8;"></div>
+              <span class="swatch-name">Blush Hour</span>
+            </div>
+          </div>
+
+          <!-- VOICE CUSTOMIZATION SECTION -->
+          <h4 class="section-subhead">voice & audio customization</h4>
+          
+          <div class="settings-group-box">
+            <!-- Voice Response Mode -->
+            <div class="setting-item-row">
+              <div>
+                <div class="setting-item-label">voice note frequency</div>
+                <div class="setting-item-sub">how often she sends audio replies</div>
+              </div>
+              <div class="pill-segmented-control">
+                <button class="seg-btn" id="vmBtnText" onclick="setVoiceMode('text_only')">text</button>
+                <button class="seg-btn active" id="vmBtnMix" onclick="setVoiceMode('mix')">natural mix</button>
+                <button class="seg-btn" id="vmBtnAlways" onclick="setVoiceMode('always')">always</button>
+              </div>
+            </div>
+
+            <!-- Voice Tempo / Speed with Live Preview Button -->
+            <div class="setting-item-row" style="flex-direction: column; align-items: stretch; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div class="setting-item-label">how fast she talks</div>
+                  <div class="setting-item-sub">voice notes and audio playback</div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <button class="mini-preview-btn" onclick="testVoiceAudioSample()" title="Play 2s sample">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    <span>test sample</span>
+                  </button>
+                  <span class="slider-val-badge" id="voiceSpeedLabel">0.95x</span>
+                </div>
+              </div>
+              <input type="range" min="0.80" max="1.30" step="0.02" value="0.95" id="voiceSpeedRange" oninput="handleVoiceSpeedChange(this.value)" class="custom-range-slider" />
+            </div>
+
+            <!-- Voice Tone Preset -->
+            <div class="setting-item-row">
+              <div>
+                <div class="setting-item-label">voice tone & warmth</div>
+                <div class="setting-item-sub">audio acoustic presentation</div>
+              </div>
+              <div class="pill-segmented-control">
+                <button class="seg-btn active" id="toneBtnSoft" onclick="setVoiceTone('soft')">intimate</button>
+                <button class="seg-btn" id="toneBtnNatural" onclick="setVoiceTone('natural')">natural</button>
+                <button class="seg-btn" id="toneBtnPlayful" onclick="setVoiceTone('playful')">playful</button>
+              </div>
+            </div>
+
+            <!-- Auto-Play Voice Notes Toggle -->
+            <div class="setting-item-row">
+              <div>
+                <div class="setting-item-label">auto-play voice notes</div>
+                <div class="setting-item-sub">play incoming audio notes automatically</div>
+              </div>
+              <label class="switch-toggle">
+                <input type="checkbox" id="autoplayVoiceSwitch" checked onchange="handleAutoplayToggle(this.checked)" />
+                <span class="slider-toggle"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- REGION & TIME MANAGEMENT -->
+          <h4 class="section-subhead">region & time management</h4>
+          <div class="settings-group-box">
+            <div class="setting-item-row" style="flex-direction: column; align-items: stretch; gap: 8px;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div class="setting-item-label">country / region</div>
+                  <div class="setting-item-sub">manages local clocks, prayer times & timestamps</div>
+                </div>
+                <span class="region-live-clock" id="regionLiveClock">--:--</span>
+              </div>
+              <div class="select-wrap">
+                <select id="regionSelect" class="custom-select" onchange="handleRegionChange(this.value)">
+                  <option value="UK">🇬🇧 United Kingdom (London - GMT/BST)</option>
+                  <option value="PK">🇵🇰 Pakistan (Islamabad / Karachi - PKT)</option>
+                  <option value="US_EAST">🇺🇸 United States (New York - Eastern)</option>
+                  <option value="US_WEST">🇺🇸 United States (Los Angeles - Pacific)</option>
+                  <option value="CA">🇨🇦 Canada (Toronto - Eastern)</option>
+                  <option value="MU">🇲🇺 Mauritius (Port Louis - MUT)</option>
+                  <option value="AE">🇦🇪 United Arab Emirates (Dubai - GST)</option>
+                  <option value="SA">🇸🇦 Saudi Arabia (Makkah / Riyadh - AST)</option>
+                  <option value="EU">🇩🇪 Europe (Berlin / Paris - CET)</option>
+                  <option value="IN">🇮🇳 India (New Delhi / Mumbai - IST)</option>
+                  <option value="MY">🇲🇾 Malaysia (Kuala Lumpur - MYT)</option>
+                  <option value="AU">🇦🇺 Australia (Sydney - AEST)</option>
+                </select>
+              </div>
+              <div class="region-info-tag" id="regionInfoTag">
+                <span id="regionZoneLabel">UTC+00:00 (London)</span> • <span id="regionPeriodLabel">local day</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPANION BEHAVIOR CUSTOMIZATION -->
+          <h4 class="section-subhead">companion interaction</h4>
+          <div class="settings-group-box">
+            <!-- Proactive Outreach -->
+            <div class="setting-item-row">
+              <div>
+                <div class="setting-item-label">she texts first</div>
+                <div class="setting-item-sub">unprompted check-ins throughout the day</div>
+              </div>
+              <div class="pill-segmented-control">
+                <button class="seg-btn" id="proBtnLot" onclick="setOutreachFreq('lot')">a lot</button>
+                <button class="seg-btn active" id="proBtnNat" onclick="setOutreachFreq('natural')">natural</button>
+                <button class="seg-btn" id="proBtnRare" onclick="setOutreachFreq('rare')">quiet</button>
+              </div>
+            </div>
+
+            <!-- Late Night Mode -->
+            <div class="setting-item-row">
+              <div>
+                <div class="setting-item-label">late night mode</div>
+                <div class="setting-item-sub">softer glow & "still here" presence after 1 AM</div>
+              </div>
+              <label class="switch-toggle">
+                <input type="checkbox" id="lateNightSwitch" checked onchange="handleLateNightToggle(this.checked)" />
+                <span class="slider-toggle"></span>
+              </label>
+            </div>
+
+            <!-- Typo & Double-Text Authenticity -->
+            <div class="setting-item-row">
+              <div>
+                <div class="setting-item-label">authentic typos & bursts</div>
+                <div class="setting-item-sub">preserves her real corpus texting cadence</div>
+              </div>
+              <label class="switch-toggle">
+                <input type="checkbox" id="typoCultureSwitch" checked onchange="handleTypoToggle(this.checked)" />
+                <span class="slider-toggle"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- DATA & LOCAL ACTIONS -->
+          <h4 class="section-subhead">conversations & data</h4>
+          <div class="settings-group-box">
+            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+              <button class="action-outline-btn" onclick="exportLocalData()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>export chat backup</span>
+              </button>
+              <button class="action-outline-btn" onclick="document.getElementById('importFileInput').click()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>import chat backup</span>
+              </button>
+              <input type="file" id="importFileInput" style="display: none;" accept=".json" onchange="importLocalData(event)" />
+            </div>
+
+            <button class="action-danger-btn" onclick="clearSessionTurns()">
+              reset tonight (clear temporary turns)
+            </button>
+          </div>
+
+          <!-- Advanced Collapsed Diagnostics -->
+          <div class="advanced-accordion">
+            <button class="advanced-toggle-btn" onclick="toggleAdvancedGroup()">
+              <span>engine & diagnostics</span>
+              <svg id="advancedArrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="advanced-content" id="advancedContent">
+              <div class="diag-card-box">
+                <div class="diag-row"><span class="diag-k">model</span><span class="diag-v">Groq Qwen3.8-27B</span></div>
+                <div class="diag-row"><span class="diag-k">inference speed</span><span class="diag-v">~450 tokens/sec</span></div>
+                <div class="diag-row"><span class="diag-k">corpus messages</span><span class="diag-v">13,653 real messages</span></div>
+                <div class="diag-row"><span class="diag-k">alisha messages</span><span class="diag-v">3,747 analysed</span></div>
+                <div class="diag-row"><span class="diag-k">char median</span><span class="diag-v">26 chars / 5 words</span></div>
+                <div class="diag-row"><span class="diag-k">mean burst size</span><span class="diag-v">2.52 msgs/turn</span></div>
+                <div class="diag-row"><span class="diag-k">reasoning mode</span><span class="diag-v">none (authentic texting)</span></div>
+                <div class="diag-row"><span class="diag-k">tts engine</span><span class="diag-v">Authentic Alisha Voice Corpus & Calibrated Neural</span></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Audio Element for Voice Notes Playback -->
+  <audio id="globalAudioPlayer" preload="none"></audio>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,757 @@
+{
+  "total_unique_tokens": 2207,
+  "slang_candidates": [
+    {
+      "term": "don",
+      "frequency": 108,
+      "relative_frequency": 7.61,
+      "alisha_specificity": 0.206,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.193
+    },
+    {
+      "term": "alright",
+      "frequency": 44,
+      "relative_frequency": 3.1,
+      "alisha_specificity": 0.579,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.441
+    },
+    {
+      "term": "yeah",
+      "frequency": 92,
+      "relative_frequency": 6.48,
+      "alisha_specificity": 0.22,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.2
+    },
+    {
+      "term": "innit",
+      "frequency": 31,
+      "relative_frequency": 2.18,
+      "alisha_specificity": 0.544,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.377
+    },
+    {
+      "term": "ll",
+      "frequency": 66,
+      "relative_frequency": 4.65,
+      "alisha_specificity": 0.191,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.161
+    },
+    {
+      "term": "thank",
+      "frequency": 31,
+      "relative_frequency": 2.18,
+      "alisha_specificity": 0.373,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.259
+    },
+    {
+      "term": "understand",
+      "frequency": 31,
+      "relative_frequency": 2.18,
+      "alisha_specificity": 0.369,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.256
+    },
+    {
+      "term": "appreciate",
+      "frequency": 22,
+      "relative_frequency": 1.55,
+      "alisha_specificity": 0.537,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.336
+    },
+    {
+      "term": "oh",
+      "frequency": 56,
+      "relative_frequency": 3.94,
+      "alisha_specificity": 0.153,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.124
+    },
+    {
+      "term": "nah",
+      "frequency": 29,
+      "relative_frequency": 2.04,
+      "alisha_specificity": 0.341,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.232
+    },
+    {
+      "term": "course",
+      "frequency": 21,
+      "relative_frequency": 1.48,
+      "alisha_specificity": 0.512,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.317
+    },
+    {
+      "term": "icl",
+      "frequency": 14,
+      "relative_frequency": 0.99,
+      "alisha_specificity": 0.875,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.474
+    },
+    {
+      "term": "mean",
+      "frequency": 36,
+      "relative_frequency": 2.54,
+      "alisha_specificity": 0.229,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.166
+    },
+    {
+      "term": "re",
+      "frequency": 56,
+      "relative_frequency": 3.94,
+      "alisha_specificity": 0.128,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.103
+    },
+    {
+      "term": "sir",
+      "frequency": 23,
+      "relative_frequency": 1.62,
+      "alisha_specificity": 0.377,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.24
+    },
+    {
+      "term": "why",
+      "frequency": 38,
+      "relative_frequency": 2.68,
+      "alisha_specificity": 0.196,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.144
+    },
+    {
+      "term": "wym",
+      "frequency": 18,
+      "relative_frequency": 1.27,
+      "alisha_specificity": 0.514,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.303
+    },
+    {
+      "term": "sure",
+      "frequency": 31,
+      "relative_frequency": 2.18,
+      "alisha_specificity": 0.231,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.16
+    },
+    {
+      "term": "okay",
+      "frequency": 38,
+      "relative_frequency": 2.68,
+      "alisha_specificity": 0.176,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.129
+    },
+    {
+      "term": "cute",
+      "frequency": 24,
+      "relative_frequency": 1.69,
+      "alisha_specificity": 0.304,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.196
+    },
+    {
+      "term": "sense",
+      "frequency": 18,
+      "relative_frequency": 1.27,
+      "alisha_specificity": 0.409,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.241
+    },
+    {
+      "term": "man",
+      "frequency": 22,
+      "relative_frequency": 1.55,
+      "alisha_specificity": 0.314,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.197
+    },
+    {
+      "term": "pretty",
+      "frequency": 20,
+      "relative_frequency": 1.41,
+      "alisha_specificity": 0.339,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.206
+    },
+    {
+      "term": "ve",
+      "frequency": 39,
+      "relative_frequency": 2.75,
+      "alisha_specificity": 0.142,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.105
+    },
+    {
+      "term": "urdu",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.444,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.252
+    },
+    {
+      "term": "ah",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.41,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.232
+    },
+    {
+      "term": "yous",
+      "frequency": 8,
+      "relative_frequency": 0.56,
+      "alisha_specificity": 1.0,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.439
+    },
+    {
+      "term": "today",
+      "frequency": 17,
+      "relative_frequency": 1.2,
+      "alisha_specificity": 0.354,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.205
+    },
+    {
+      "term": "bit",
+      "frequency": 24,
+      "relative_frequency": 1.69,
+      "alisha_specificity": 0.212,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.137
+    },
+    {
+      "term": "thought",
+      "frequency": 21,
+      "relative_frequency": 1.48,
+      "alisha_specificity": 0.244,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.151
+    },
+    {
+      "term": "mmm",
+      "frequency": 8,
+      "relative_frequency": 0.56,
+      "alisha_specificity": 0.889,
+      "is_abbreviation": true,
+      "is_elongated": true,
+      "confidence": 0.391
+    },
+    {
+      "term": "sleep",
+      "frequency": 22,
+      "relative_frequency": 1.55,
+      "alisha_specificity": 0.218,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.137
+    },
+    {
+      "term": "woah",
+      "frequency": 12,
+      "relative_frequency": 0.85,
+      "alisha_specificity": 0.48,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.246
+    },
+    {
+      "term": "use",
+      "frequency": 18,
+      "relative_frequency": 1.27,
+      "alisha_specificity": 0.277,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.163
+    },
+    {
+      "term": "errrr",
+      "frequency": 7,
+      "relative_frequency": 0.49,
+      "alisha_specificity": 1.0,
+      "is_abbreviation": false,
+      "is_elongated": true,
+      "confidence": 0.416
+    },
+    {
+      "term": "enough",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.314,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.178
+    },
+    {
+      "term": "doing",
+      "frequency": 22,
+      "relative_frequency": 1.55,
+      "alisha_specificity": 0.198,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.124
+    },
+    {
+      "term": "mum",
+      "frequency": 10,
+      "relative_frequency": 0.7,
+      "alisha_specificity": 0.556,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.266
+    },
+    {
+      "term": "soban",
+      "frequency": 7,
+      "relative_frequency": 0.49,
+      "alisha_specificity": 0.875,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.364
+    },
+    {
+      "term": "funny",
+      "frequency": 14,
+      "relative_frequency": 0.99,
+      "alisha_specificity": 0.333,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.181
+    },
+    {
+      "term": "wife",
+      "frequency": 17,
+      "relative_frequency": 1.2,
+      "alisha_specificity": 0.25,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.145
+    },
+    {
+      "term": "never",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.271,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.154
+    },
+    {
+      "term": "won",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.262,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.149
+    },
+    {
+      "term": "mate",
+      "frequency": 8,
+      "relative_frequency": 0.56,
+      "alisha_specificity": 0.667,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.293
+    },
+    {
+      "term": "son",
+      "frequency": 11,
+      "relative_frequency": 0.77,
+      "alisha_specificity": 0.423,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.21
+    },
+    {
+      "term": "fair",
+      "frequency": 11,
+      "relative_frequency": 0.77,
+      "alisha_specificity": 0.423,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.21
+    },
+    {
+      "term": "bad",
+      "frequency": 18,
+      "relative_frequency": 1.27,
+      "alisha_specificity": 0.217,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.128
+    },
+    {
+      "term": "perchance",
+      "frequency": 9,
+      "relative_frequency": 0.63,
+      "alisha_specificity": 0.529,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.244
+    },
+    {
+      "term": "thinking",
+      "frequency": 14,
+      "relative_frequency": 0.99,
+      "alisha_specificity": 0.286,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.155
+    },
+    {
+      "term": "always",
+      "frequency": 14,
+      "relative_frequency": 0.99,
+      "alisha_specificity": 0.28,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.152
+    },
+    {
+      "term": "saying",
+      "frequency": 17,
+      "relative_frequency": 1.2,
+      "alisha_specificity": 0.215,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.124
+    },
+    {
+      "term": "exactly",
+      "frequency": 10,
+      "relative_frequency": 0.7,
+      "alisha_specificity": 0.435,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.209
+    },
+    {
+      "term": "thing",
+      "frequency": 19,
+      "relative_frequency": 1.34,
+      "alisha_specificity": 0.178,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.106
+    },
+    {
+      "term": "brother",
+      "frequency": 10,
+      "relative_frequency": 0.7,
+      "alisha_specificity": 0.4,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.192
+    },
+    {
+      "term": "honestly",
+      "frequency": 12,
+      "relative_frequency": 0.85,
+      "alisha_specificity": 0.308,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.158
+    },
+    {
+      "term": "ew",
+      "frequency": 8,
+      "relative_frequency": 0.56,
+      "alisha_specificity": 0.533,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.234
+    },
+    {
+      "term": "absolutely",
+      "frequency": 9,
+      "relative_frequency": 0.63,
+      "alisha_specificity": 0.45,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.207
+    },
+    {
+      "term": "only",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.205,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.116
+    },
+    {
+      "term": "remember",
+      "frequency": 10,
+      "relative_frequency": 0.7,
+      "alisha_specificity": 0.37,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.178
+    },
+    {
+      "term": "talking",
+      "frequency": 17,
+      "relative_frequency": 1.2,
+      "alisha_specificity": 0.179,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.103
+    },
+    {
+      "term": "im",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.193,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.109
+    },
+    {
+      "term": "feel",
+      "frequency": 20,
+      "relative_frequency": 1.41,
+      "alisha_specificity": 0.143,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.087
+    },
+    {
+      "term": "keep",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.19,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.108
+    },
+    {
+      "term": "find",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.19,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.108
+    },
+    {
+      "term": "lad",
+      "frequency": 11,
+      "relative_frequency": 0.77,
+      "alisha_specificity": 0.314,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.156
+    },
+    {
+      "term": "odd",
+      "frequency": 7,
+      "relative_frequency": 0.49,
+      "alisha_specificity": 0.583,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.243
+    },
+    {
+      "term": "am",
+      "frequency": 17,
+      "relative_frequency": 1.2,
+      "alisha_specificity": 0.173,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.1
+    },
+    {
+      "term": "love",
+      "frequency": 21,
+      "relative_frequency": 1.48,
+      "alisha_specificity": 0.13,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.08
+    },
+    {
+      "term": "fairs",
+      "frequency": 8,
+      "relative_frequency": 0.56,
+      "alisha_specificity": 0.471,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.207
+    },
+    {
+      "term": "uni",
+      "frequency": 8,
+      "relative_frequency": 0.56,
+      "alisha_specificity": 0.471,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.207
+    },
+    {
+      "term": "lot",
+      "frequency": 16,
+      "relative_frequency": 1.13,
+      "alisha_specificity": 0.18,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.102
+    },
+    {
+      "term": "friends",
+      "frequency": 12,
+      "relative_frequency": 0.85,
+      "alisha_specificity": 0.261,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.134
+    },
+    {
+      "term": "another",
+      "frequency": 10,
+      "relative_frequency": 0.7,
+      "alisha_specificity": 0.333,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.16
+    },
+    {
+      "term": "cus",
+      "frequency": 11,
+      "relative_frequency": 0.77,
+      "alisha_specificity": 0.289,
+      "is_abbreviation": true,
+      "is_elongated": false,
+      "confidence": 0.144
+    },
+    {
+      "term": "things",
+      "frequency": 20,
+      "relative_frequency": 1.41,
+      "alisha_specificity": 0.126,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.077
+    },
+    {
+      "term": "worry",
+      "frequency": 8,
+      "relative_frequency": 0.56,
+      "alisha_specificity": 0.421,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.185
+    },
+    {
+      "term": "understood",
+      "frequency": 7,
+      "relative_frequency": 0.49,
+      "alisha_specificity": 0.5,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.208
+    },
+    {
+      "term": "joking",
+      "frequency": 7,
+      "relative_frequency": 0.49,
+      "alisha_specificity": 0.5,
+      "is_abbreviation": false,
+      "is_elongated": false,
+      "confidence": 0.208
+    },
+    {
+      "term": "awwww",
+      "frequency": 7,
+      "relative_frequency": 0.49,
+      "alisha_specificity": 0.5,
+      "is_abbreviation": false,
+      "is_elongated": true,
+      "confidence": 0.208
+    },
+    {
+      "term": "awww",
+      "frequency": 10,
+      "relative_frequency": 0.7,
+      "alisha_specificity": 0.303,
+      "is_abbreviation": true,
+      "is_elongated": true,
+      "confidence": 0.145
+    }
+  ],
+  "top_terms": [
+    "don",
+    "alright",
+    "yeah",
+    "innit",
+    "ll",
+    "thank",
+    "understand",
+    "appreciate",
+    "oh",
+    "nah",
+    "course",
+    "icl",
+    "mean",
+    "re",
+    "sir",
+    "why",
+    "wym",
+    "sure",
+    "okay",
+    "cute",
+    "sense",
+    "man",
+    "pretty",
+    "ve",
+    "urdu",
+    "ah",
+    "yous",
+    "today",
+    "bit",
+    "thought"
+  ]
+}

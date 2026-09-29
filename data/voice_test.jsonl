@@ -1,0 +1,15 @@
+{"id": "1125435969717032", "audio": "voice/1125435969717032.wav", "duration_sec": 4.04, "quality_score": 0.9464, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "2106340333237368", "audio": "voice/2106340333237368.wav", "duration_sec": 39.01, "quality_score": 0.9378, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "781220244738314", "audio": "voice/781220244738314.wav", "duration_sec": 18.994, "quality_score": 0.9411, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1211480357481077", "audio": "voice/1211480357481077.wav", "duration_sec": 53.499, "quality_score": 0.9232, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "5191809857710001", "audio": "voice/5191809857710001.wav", "duration_sec": 7.663, "quality_score": 0.9002, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "823834583912959", "audio": "voice/823834583912959.wav", "duration_sec": 25.588, "quality_score": 0.9276, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1246965424286865", "audio": "voice/1246965424286865.wav", "duration_sec": 15.557, "quality_score": 0.9308, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1303735758283391", "audio": "voice/1303735758283391.wav", "duration_sec": 17.787, "quality_score": 0.9527, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1458350818592295", "audio": "voice/1458350818592295.wav", "duration_sec": 11.982, "quality_score": 0.9441, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1508846270240338", "audio": "voice/1508846270240338.wav", "duration_sec": 3.437, "quality_score": 0.9564, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1532103147792788", "audio": "voice/1532103147792788.wav", "duration_sec": 6.548, "quality_score": 0.9177, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "930257046596339", "audio": "voice/930257046596339.wav", "duration_sec": 41.192, "quality_score": 0.9375, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1124858656499804", "audio": "voice/1124858656499804.wav", "duration_sec": 18.762, "quality_score": 0.9492, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "1247080237633732", "audio": "voice/1247080237633732.wav", "duration_sec": 5.48, "quality_score": 0.9843, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}
+{"id": "802542409583729", "audio": "voice/802542409583729.wav", "duration_sec": 27.632, "quality_score": 0.92, "classification": "A", "ref_audio": "refs/ref_neutral.wav"}

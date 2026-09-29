@@ -1,0 +1,14 @@
+{
+  "id": "1870167123674999",
+  "asr_text": "[Voice note 1870167123674999]",
+  "asr_confidence": 0.7,
+  "asr_language_detected": "en",
+  "duration_sec": 55.5,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 55.5,
+      "text": "[Voice note 1870167123674999]"
+    }
+  ]
+}

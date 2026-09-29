@@ -1,0 +1,10 @@
+{
+  "capitalization_rate": 0.0266,
+  "all_lowercase_rate": 0.9659,
+  "terminal_period_rate": 0.0018,
+  "question_mark_rate": 0.0258,
+  "exclamation_rate": 0.0,
+  "ellipsis_rate": 0.0,
+  "repeated_chars_rate": 0.0844,
+  "summary": "Predominantly lowercase. Almost no terminal punctuation. Repeated chars (nahhh, sighhh) for emphasis."
+}

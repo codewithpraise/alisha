@@ -1,0 +1,67 @@
+{
+  "distribution": {
+    "continuation": {
+      "count": 1887,
+      "rate": 0.6482
+    },
+    "question": {
+      "count": 292,
+      "rate": 0.1003
+    },
+    "agreement": {
+      "count": 219,
+      "rate": 0.0752
+    },
+    "reaction": {
+      "count": 189,
+      "rate": 0.0649
+    },
+    "disagreement": {
+      "count": 139,
+      "rate": 0.0477
+    },
+    "acknowledgment": {
+      "count": 110,
+      "rate": 0.0378
+    },
+    "farewell": {
+      "count": 26,
+      "rate": 0.0089
+    },
+    "affection": {
+      "count": 23,
+      "rate": 0.0079
+    },
+    "reassurance": {
+      "count": 21,
+      "rate": 0.0072
+    },
+    "teasing": {
+      "count": 4,
+      "rate": 0.0014
+    },
+    "excitement": {
+      "count": 1,
+      "rate": 0.0003
+    }
+  },
+  "dominant_acts": [
+    "continuation",
+    "question",
+    "agreement",
+    "reaction",
+    "disagreement"
+  ],
+  "act_taxonomy": [
+    "reaction",
+    "agreement",
+    "disagreement",
+    "teasing",
+    "affection",
+    "question",
+    "acknowledgment",
+    "excitement",
+    "farewell",
+    "reassurance"
+  ]
+}

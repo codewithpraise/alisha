@@ -1,0 +1,486 @@
+{
+  "top_words": [
+    {
+      "word": "i",
+      "count": 826
+    },
+    {
+      "word": "you",
+      "count": 602
+    },
+    {
+      "word": "it",
+      "count": 334
+    },
+    {
+      "word": "that",
+      "count": 298
+    },
+    {
+      "word": "to",
+      "count": 271
+    },
+    {
+      "word": "the",
+      "count": 241
+    },
+    {
+      "word": "a",
+      "count": 225
+    },
+    {
+      "word": "s",
+      "count": 206
+    },
+    {
+      "word": "and",
+      "count": 199
+    },
+    {
+      "word": "t",
+      "count": 188
+    },
+    {
+      "word": "like",
+      "count": 157
+    },
+    {
+      "word": "not",
+      "count": 153
+    },
+    {
+      "word": "me",
+      "count": 148
+    },
+    {
+      "word": "my",
+      "count": 145
+    },
+    {
+      "word": "of",
+      "count": 134
+    },
+    {
+      "word": "what",
+      "count": 132
+    },
+    {
+      "word": "for",
+      "count": 124
+    },
+    {
+      "word": "is",
+      "count": 118
+    },
+    {
+      "word": "but",
+      "count": 118
+    },
+    {
+      "word": "be",
+      "count": 118
+    },
+    {
+      "word": "m",
+      "count": 109
+    },
+    {
+      "word": "don",
+      "count": 108
+    },
+    {
+      "word": "no",
+      "count": 106
+    },
+    {
+      "word": "do",
+      "count": 105
+    },
+    {
+      "word": "in",
+      "count": 92
+    },
+    {
+      "word": "yeah",
+      "count": 92
+    },
+    {
+      "word": "your",
+      "count": 91
+    },
+    {
+      "word": "so",
+      "count": 91
+    },
+    {
+      "word": "well",
+      "count": 90
+    },
+    {
+      "word": "with",
+      "count": 83
+    },
+    {
+      "word": "as",
+      "count": 80
+    },
+    {
+      "word": "have",
+      "count": 80
+    },
+    {
+      "word": "think",
+      "count": 77
+    },
+    {
+      "word": "know",
+      "count": 76
+    },
+    {
+      "word": "if",
+      "count": 74
+    },
+    {
+      "word": "yes",
+      "count": 72
+    },
+    {
+      "word": "can",
+      "count": 72
+    },
+    {
+      "word": "we",
+      "count": 71
+    },
+    {
+      "word": "about",
+      "count": 67
+    },
+    {
+      "word": "ll",
+      "count": 66
+    },
+    {
+      "word": "on",
+      "count": 63
+    },
+    {
+      "word": "just",
+      "count": 63
+    },
+    {
+      "word": "good",
+      "count": 62
+    },
+    {
+      "word": "how",
+      "count": 62
+    },
+    {
+      "word": "was",
+      "count": 61
+    },
+    {
+      "word": "would",
+      "count": 61
+    },
+    {
+      "word": "oh",
+      "count": 56
+    },
+    {
+      "word": "re",
+      "count": 56
+    },
+    {
+      "word": "really",
+      "count": 54
+    },
+    {
+      "word": "or",
+      "count": 52
+    }
+  ],
+  "top_bigrams": [
+    {
+      "bigram": "don t",
+      "count": 108
+    },
+    {
+      "bigram": "i m",
+      "count": 108
+    },
+    {
+      "bigram": "it s",
+      "count": 94
+    },
+    {
+      "bigram": "i don",
+      "count": 64
+    },
+    {
+      "bigram": "that s",
+      "count": 60
+    },
+    {
+      "bigram": "you re",
+      "count": 46
+    },
+    {
+      "bigram": "i ll",
+      "count": 38
+    },
+    {
+      "bigram": "as well",
+      "count": 37
+    },
+    {
+      "bigram": "but i",
+      "count": 31
+    },
+    {
+      "bigram": "i can",
+      "count": 30
+    },
+    {
+      "bigram": "i know",
+      "count": 28
+    },
+    {
+      "bigram": "and i",
+      "count": 28
+    },
+    {
+      "bigram": "if you",
+      "count": 25
+    },
+    {
+      "bigram": "i was",
+      "count": 24
+    },
+    {
+      "bigram": "do you",
+      "count": 24
+    },
+    {
+      "bigram": "thank you",
+      "count": 24
+    },
+    {
+      "bigram": "i do",
+      "count": 24
+    },
+    {
+      "bigram": "m not",
+      "count": 24
+    },
+    {
+      "bigram": "i mean",
+      "count": 23
+    },
+    {
+      "bigram": "i think",
+      "count": 23
+    },
+    {
+      "bigram": "s not",
+      "count": 22
+    },
+    {
+      "bigram": "for you",
+      "count": 22
+    },
+    {
+      "bigram": "i appreciate",
+      "count": 22
+    },
+    {
+      "bigram": "to be",
+      "count": 22
+    },
+    {
+      "bigram": "you can",
+      "count": 21
+    },
+    {
+      "bigram": "i ve",
+      "count": 21
+    },
+    {
+      "bigram": "of course",
+      "count": 20
+    },
+    {
+      "bigram": "t know",
+      "count": 20
+    },
+    {
+      "bigram": "think you",
+      "count": 19
+    },
+    {
+      "bigram": "so i",
+      "count": 19
+    }
+  ],
+  "top_trigrams": [
+    {
+      "trigram": "i don t",
+      "count": 64
+    },
+    {
+      "trigram": "i m not",
+      "count": 24
+    },
+    {
+      "trigram": "don t know",
+      "count": 17
+    },
+    {
+      "trigram": "it s okay",
+      "count": 15
+    },
+    {
+      "trigram": "it s not",
+      "count": 14
+    },
+    {
+      "trigram": "don t think",
+      "count": 13
+    },
+    {
+      "trigram": "you don t",
+      "count": 12
+    },
+    {
+      "trigram": "i got you",
+      "count": 11
+    },
+    {
+      "trigram": "that makes sense",
+      "count": 8
+    },
+    {
+      "trigram": "i won t",
+      "count": 8
+    },
+    {
+      "trigram": "but it s",
+      "count": 8
+    },
+    {
+      "trigram": "don t really",
+      "count": 8
+    },
+    {
+      "trigram": "we don t",
+      "count": 7
+    },
+    {
+      "trigram": "don t want",
+      "count": 7
+    },
+    {
+      "trigram": "i ll be",
+      "count": 7
+    },
+    {
+      "trigram": "i can t",
+      "count": 7
+    },
+    {
+      "trigram": "it s a",
+      "count": 7
+    },
+    {
+      "trigram": "i appreciate you",
+      "count": 7
+    },
+    {
+      "trigram": "but that s",
+      "count": 7
+    },
+    {
+      "trigram": "that s the",
+      "count": 7
+    }
+  ],
+  "top_openers": [
+    {
+      "word": "i",
+      "count": 402
+    },
+    {
+      "word": "you",
+      "count": 122
+    },
+    {
+      "word": "yeah",
+      "count": 72
+    },
+    {
+      "word": "no",
+      "count": 68
+    },
+    {
+      "word": "what",
+      "count": 65
+    },
+    {
+      "word": "it",
+      "count": 63
+    },
+    {
+      "word": "yes",
+      "count": 59
+    },
+    {
+      "word": "oh",
+      "count": 56
+    },
+    {
+      "word": "and",
+      "count": 49
+    },
+    {
+      "word": "that",
+      "count": 44
+    },
+    {
+      "word": "but",
+      "count": 43
+    },
+    {
+      "word": "how",
+      "count": 37
+    },
+    {
+      "word": "so",
+      "count": 32
+    },
+    {
+      "word": "we",
+      "count": 31
+    },
+    {
+      "word": "why",
+      "count": 27
+    }
+  ],
+  "length_distribution": {
+    "chars": {
+      "min": 1,
+      "median": 15,
+      "mean": 23.7,
+      "p90": 52,
+      "p95": 70,
+      "max": 471
+    },
+    "words": {
+      "min": 0,
+      "median": 3,
+      "mean": 5.1,
+      "p90": 11
+    }
+  }
+}

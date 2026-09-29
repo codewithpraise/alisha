@@ -1,0 +1,29 @@
+{
+  "humor_distribution": {
+    "exaggeration": {
+      "count": 107,
+      "rate": 0.0384
+    },
+    "deadpan": {
+      "count": 52,
+      "rate": 0.0187
+    },
+    "sarcasm": {
+      "count": 46,
+      "rate": 0.0165
+    },
+    "teasing": {
+      "count": 7,
+      "rate": 0.0025
+    },
+    "self_deprecation": {
+      "count": 3,
+      "rate": 0.0011
+    },
+    "mock_outrage": {
+      "count": 1,
+      "rate": 0.0004
+    }
+  },
+  "dominant_humor_type": "exaggeration"
+}

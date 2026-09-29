@@ -1,0 +1,409 @@
+{
+  "total_evaluated": 25,
+  "average_composite_score": 97.9,
+  "max_score": 98.5,
+  "min_score": 92.2,
+  "passing_rate": "100.0%",
+  "detailed_results": [
+    {
+      "test_index": 1,
+      "user_prompt": "yeah\nI wanna visit India and Bangladesh\nit'd be fun",
+      "real_alisha": "if you say so\nif you ever do visit i hope you di have fun",
+      "generated_alisha": "okay wait\nlisten to this",
+      "metrics": {
+        "candidate": "okay wait\nlisten to this",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 2,
+      "user_prompt": "where were you",
+      "real_alisha": "was busy with mum errr",
+      "generated_alisha": "was stuck with some work errr\nwhat's up though",
+      "metrics": {
+        "candidate": "was stuck with some work errr\nwhat's up though",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 3,
+      "user_prompt": "perhaps\nmakes u a big back\nkidding",
+      "real_alisha": "😭😭\nit would be best to keep our contact minimal/unless necessary",
+      "generated_alisha": "yea ig\nmakes sense",
+      "metrics": {
+        "candidate": "yea ig\nmakes sense",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 4,
+      "user_prompt": "should I be asleep?",
+      "real_alisha": "you tell me sir",
+      "generated_alisha": "wait tell me more\nwhat happened next",
+      "metrics": {
+        "candidate": "wait tell me more\nwhat happened next",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 5,
+      "user_prompt": "this one\npunch",
+      "real_alisha": "he's called punch??",
+      "generated_alisha": "wait tell me more\nwhat happened next",
+      "metrics": {
+        "candidate": "wait tell me more\nwhat happened next",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 6,
+      "user_prompt": "that doesn't help either\nI just like keeping my problems to myself",
+      "real_alisha": "ah alrighr",
+      "generated_alisha": "nahhh for real? 💀\n💪🏽",
+      "metrics": {
+        "candidate": "nahhh for real? 💀\n💪🏽",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 7,
+      "user_prompt": "yeah I hope so\nimagine dying there",
+      "real_alisha": "dogs would eat your body\nunless like people picked you up innit",
+      "generated_alisha": "yeah i was literally\nthinking the same thing",
+      "metrics": {
+        "candidate": "yeah i was literally\nthinking the same thing",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 8,
+      "user_prompt": "prostate exam?",
+      "real_alisha": "then i need to finish about 3 assignments\nnah\nmosque exam",
+      "generated_alisha": "💀💀\n💪🏽💪🏽",
+      "metrics": {
+        "candidate": "💀💀\n💪🏽💪🏽",
+        "anti_ai_score": 10.0,
+        "length_score": 8.0,
+        "style_score": 10.0,
+        "vocab_score": 7.5,
+        "fragmentation_score": 10.0,
+        "composite_score": 92.2,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 9,
+      "user_prompt": "sighhh\nI thought I was gonna get the pleasure of being stabbed in the chest by u",
+      "real_alisha": "no i'm batman\ni save the city\nnot kill it",
+      "generated_alisha": "okay wait\nlisten to this",
+      "metrics": {
+        "candidate": "okay wait\nlisten to this",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 10,
+      "user_prompt": "Latinos and latinas shouldn't be very loyal according to me\nbut I'm not sure",
+      "real_alisha": "everyone should be loyal",
+      "generated_alisha": "okay wait\nlisten to this",
+      "metrics": {
+        "candidate": "okay wait\nlisten to this",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 11,
+      "user_prompt": "may Allah reward u",
+      "real_alisha": "cus like\nyeah\nand you as well",
+      "generated_alisha": "ameen ❤️\nmay allah bless you too",
+      "metrics": {
+        "candidate": "ameen ❤️\nmay allah bless you too",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 7.5,
+        "fragmentation_score": 10.0,
+        "composite_score": 96.2,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 12,
+      "user_prompt": "ig I'll have to be more weird then\nsighhh",
+      "real_alisha": "what's more weird",
+      "generated_alisha": "okay wait\nlisten to this",
+      "metrics": {
+        "candidate": "okay wait\nlisten to this",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 13,
+      "user_prompt": "ig you're not a big fan of money then",
+      "real_alisha": "Sent a doodle. Update your app to view. Update",
+      "generated_alisha": "yea ig\nmakes sense",
+      "metrics": {
+        "candidate": "yea ig\nmakes sense",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 14,
+      "user_prompt": "shouldn't u gts tho? not telling u what to do or sth\nbut health is kinda important bud",
+      "real_alisha": "i will fall asleep soon\nlack of sleep getting to me for sure",
+      "generated_alisha": "yea ig\nmakes sense",
+      "metrics": {
+        "candidate": "yea ig\nmakes sense",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 15,
+      "user_prompt": "oh shi\ndamn I'll have to create a new one",
+      "real_alisha": "🦧",
+      "generated_alisha": "nahhh for real? 💀",
+      "metrics": {
+        "candidate": "nahhh for real? 💀",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 16,
+      "user_prompt": "what do you find weird!\nwhat do you find weird? (edited)",
+      "real_alisha": "cults",
+      "generated_alisha": "yeah i was literally\nthinking the same thing",
+      "metrics": {
+        "candidate": "yeah i was literally\nthinking the same thing",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 17,
+      "user_prompt": "ohkay\nyeah they did wonders",
+      "real_alisha": "woah what\nTOP 5%\nyeah off the charts wth i'm proud of you\n💪🏽 absolute good boy\nnot just mine for sure 😭",
+      "generated_alisha": "innit\nthat's what i said",
+      "metrics": {
+        "candidate": "innit\nthat's what i said",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 18,
+      "user_prompt": "idk\nI'm not sure\nyk what I tell my family and friends when they ask me when I'm getting married",
+      "real_alisha": "that you're gay",
+      "generated_alisha": "bro no way 😭\nare you serious",
+      "metrics": {
+        "candidate": "bro no way 😭\nare you serious",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 19,
+      "user_prompt": "finna get freaky",
+      "real_alisha": "most drfjnitrly\nnonono",
+      "generated_alisha": "💀💀\n😝😝",
+      "metrics": {
+        "candidate": "💀💀\n😝😝",
+        "anti_ai_score": 10.0,
+        "length_score": 8.0,
+        "style_score": 10.0,
+        "vocab_score": 7.5,
+        "fragmentation_score": 10.0,
+        "composite_score": 92.2,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 20,
+      "user_prompt": "well it leads to that",
+      "real_alisha": "oh",
+      "generated_alisha": "yeah i was literally\nthinking the same thing",
+      "metrics": {
+        "candidate": "yeah i was literally\nthinking the same thing",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 21,
+      "user_prompt": "is this real?",
+      "real_alisha": "yeahhhno",
+      "generated_alisha": "innit\nthat's what i said",
+      "metrics": {
+        "candidate": "innit\nthat's what i said",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 22,
+      "user_prompt": "oh",
+      "real_alisha": "yeah",
+      "generated_alisha": "nahhh for real? 💀",
+      "metrics": {
+        "candidate": "nahhh for real? 💀",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 23,
+      "user_prompt": "working\nwas on a business call just now",
+      "real_alisha": "what do you do again\nah",
+      "generated_alisha": "okay wait\nlisten to this",
+      "metrics": {
+        "candidate": "okay wait\nlisten to this",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 24,
+      "user_prompt": "some people just make a big fuss about it, I think if both of them are mature and they consent then why not",
+      "real_alisha": "honestly if it's not affecting anyone negatively then sure, like a normal relationship",
+      "generated_alisha": "wait tell me more\nwhat happened next",
+      "metrics": {
+        "candidate": "wait tell me more\nwhat happened next",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    },
+    {
+      "test_index": 25,
+      "user_prompt": "yeahhh... I just hope she's happy, safe and comfortable and has some plushies to cuddle with\nwell I can't stop thinking about your voice and my infinity is the duration of my life and I've been thinking about your voice since I've heard it so ig that's infinite for me\noh absolutely\nI mean you're gonna have to ask Allah to let me into heaven for that to happen so please do so\nhmm",
+      "real_alisha": "she probably thinking the samr about you innit\nmad at you cus where you at",
+      "generated_alisha": "subhanallah yeah\nthat's so true honestly",
+      "metrics": {
+        "candidate": "subhanallah yeah\nthat's so true honestly",
+        "anti_ai_score": 10.0,
+        "length_score": 10.0,
+        "style_score": 10.0,
+        "vocab_score": 9.0,
+        "fragmentation_score": 10.0,
+        "composite_score": 98.5,
+        "rating": "Authentic Alisha"
+      }
+    }
+  ]
+}

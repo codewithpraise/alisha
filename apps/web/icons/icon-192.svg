@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <radialGradient id="halo-sm" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#D4A853" stop-opacity="0.32" />
+      <stop offset="60%" stop-color="#D4A853" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#111210" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="192" height="192" rx="48" fill="#111210" />
+  <circle cx="96" cy="90" r="70" fill="url(#halo-sm)" />
+  <circle cx="96" cy="96" r="88" fill="none" stroke="#2C2D2A" stroke-width="1.5" />
+  <text x="96" y="122" font-family="Georgia, 'Instrument Serif', serif" font-size="92" font-style="italic" font-weight="normal" fill="#F2EFE8" text-anchor="middle">A</text>
+  <circle cx="130" cy="68" r="3" fill="#D4A853" />
+</svg>

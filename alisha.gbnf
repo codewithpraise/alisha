@@ -1,0 +1,2 @@
+root  ::= word (" " word){0,14}
+word  ::= [A-Za-z0-9,.'!]+

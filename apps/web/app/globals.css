@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --theme-bg: #0A0B09;
+    --theme-deep: #111210;
+    --theme-surface-solid: #181917;
+    --theme-raised: #21221F;
+    --theme-surface: rgba(255, 255, 255, 0.03);
+    --theme-border: rgba(255, 255, 255, 0.08);
+    --theme-accent: #D4A853;
+    --theme-accent-dark: #A07A30;
+    --theme-accent-rgb: 212, 168, 83;
+    --theme-text: #F2EFE8;
+    --theme-muted: #9C9A94;
+    --font-custom: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Deep Oasis / Emerald Theme */
+  .theme-emerald {
+    --theme-bg: #040D09;
+    --theme-deep: #081611;
+    --theme-surface-solid: #0E2019;
+    --theme-raised: #152C23;
+    --theme-surface: rgba(16, 185, 129, 0.06);
+    --theme-border: rgba(52, 211, 153, 0.2);
+    --theme-accent: #10B981;
+    --theme-accent-dark: #059669;
+    --theme-accent-rgb: 16, 185, 129;
+    --theme-text: #F0FDF4;
+    --theme-muted: #86EFAC;
+  }
+
+  /* Sakura Kawaii / Pink Theme */
+  .theme-sakura, .kawaii-theme {
+    --theme-bg: #140810;
+    --theme-deep: #1C0D18;
+    --theme-surface-solid: #271422;
+    --theme-raised: #341C2E;
+    --theme-surface: rgba(244, 114, 182, 0.08);
+    --theme-border: rgba(244, 114, 182, 0.25);
+    --theme-accent: #F472B6;
+    --theme-accent-dark: #DB2777;
+    --theme-accent-rgb: 244, 114, 182;
+    --theme-text: #FDF2F8;
+    --theme-muted: #FBCFE8;
+  }
+
+  /* Obsidian Silver Theme */
+  .theme-obsidian {
+    --theme-bg: #000000;
+    --theme-deep: #080808;
+    --theme-surface-solid: #121212;
+    --theme-raised: #1C1C1C;
+    --theme-surface: rgba(255, 255, 255, 0.03);
+    --theme-border: rgba(255, 255, 255, 0.12);
+    --theme-accent: #E2E8F0;
+    --theme-accent-dark: #94A3B8;
+    --theme-accent-rgb: 226, 232, 240;
+    --theme-text: #F8FAFC;
+    --theme-muted: #94A3B8;
+  }
+
+  /* Royal Indigo Theme */
+  .theme-indigo {
+    --theme-bg: #070914;
+    --theme-deep: #0C1021;
+    --theme-surface-solid: #13172E;
+    --theme-raised: #1B2140;
+    --theme-surface: rgba(99, 102, 241, 0.07);
+    --theme-border: rgba(129, 140, 248, 0.22);
+    --theme-accent: #818CF8;
+    --theme-accent-dark: #4F46E5;
+    --theme-accent-rgb: 129, 140, 248;
+    --theme-text: #EEF2FF;
+    --theme-muted: #A5B4FC;
+  }
+
+  /* Cyber Amber Theme */
+  .theme-amber {
+    --theme-bg: #0E0B07;
+    --theme-deep: #16120C;
+    --theme-surface-solid: #211C13;
+    --theme-raised: #2D261B;
+    --theme-surface: rgba(245, 158, 11, 0.07);
+    --theme-border: rgba(251, 191, 36, 0.25);
+    --theme-accent: #F59E0B;
+    --theme-accent-dark: #D97706;
+    --theme-accent-rgb: 245, 158, 11;
+    --theme-text: #FFFBEB;
+    --theme-muted: #FCD34D;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+  }
+  
+  html, body {
+    background-color: var(--theme-bg, #0A0B09);
+    color: var(--theme-text, #F2EFE8);
+    font-family: var(--font-custom, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+    height: 100%;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: normal;
+  }
+
+  ::selection {
+    background-color: rgba(var(--theme-accent-rgb, 212, 168, 83), 0.3);
+    color: #FFFFFF;
+  }
+}
+
+/* Universal scrollbar invisibility */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Typography styles */
+.font-arabic {
+  font-family: 'Amiri', 'Noto Naskh Arabic', serif !important;
+  line-height: 2.2 !important;
+}
+
+/* Animations & Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(var(--theme-accent-rgb, 212, 168, 83), 0.15); }
+  50% { box-shadow: 0 0 30px rgba(var(--theme-accent-rgb, 212, 168, 83), 0.4); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes waveRipple {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-typing-bounce {
+  animation: typingBounce 1.2s infinite ease-in-out;
+}
+
+/* Glassmorphism Cards & Surfaces */
+.glass-card {
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(var(--theme-accent-rgb, 212, 168, 83), 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card-elevated {
+  background: var(--theme-surface-solid, #181917);
+  border: 1px solid var(--theme-border, rgba(255, 255, 255, 0.08));
+  border-radius: 1.25rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-elevated:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.interactive-tap {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+}
+
+.interactive-tap:active {
+  transform: scale(0.96);
+}
+
+/* Form Controls and Inputs */
+input, textarea, select {
+  font-family: inherit;
+  letter-spacing: normal;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--theme-accent, #D4A853) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Completely suppress browser focus outline on all interactive elements */
+*:focus {
+  outline: none !important;
+}
+
+*:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+

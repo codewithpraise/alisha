@@ -1,0 +1,15 @@
+import sqlite3, sys
+sys.stdout = open(sys.stdout.fileno(), mode='w', encoding='utf-8', buffering=1)
+con = sqlite3.connect('alisha_memory.db')
+cur = con.cursor()
+cur.execute("SELECT name FROM sqlite_master WHERE type='table'")
+print('Tables:', cur.fetchall())
+cur.execute("SELECT COUNT(1) FROM messages")
+print('Messages in DB:', cur.fetchone())
+cur.execute("SELECT DISTINCT sender FROM messages LIMIT 20")
+print('Senders in DB:', cur.fetchall())
+cur.execute("SELECT sender, content FROM messages WHERE sender='alisha' LIMIT 10")
+for row in cur.fetchall():
+    print(f'  [{row[0]}]: {repr(row[1][:80])}')
+con.close()
+print('DONE')

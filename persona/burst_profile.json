@@ -1,0 +1,62 @@
+{
+  "mean_burst_size": 2.004,
+  "median_burst_size": 2.0,
+  "max_burst_size": 14,
+  "burst_size_distribution": {
+    "1": {
+      "count": 650,
+      "probability": 0.4676
+    },
+    "2": {
+      "count": 400,
+      "probability": 0.2878
+    },
+    "3": {
+      "count": 193,
+      "probability": 0.1388
+    },
+    "4": {
+      "count": 69,
+      "probability": 0.0496
+    },
+    "5": {
+      "count": 41,
+      "probability": 0.0295
+    },
+    "6": {
+      "count": 16,
+      "probability": 0.0115
+    },
+    "7": {
+      "count": 7,
+      "probability": 0.005
+    },
+    "8": {
+      "count": 6,
+      "probability": 0.0043
+    },
+    "9": {
+      "count": 4,
+      "probability": 0.0029
+    },
+    "10": {
+      "count": 1,
+      "probability": 0.0007
+    },
+    "11": {
+      "count": 1,
+      "probability": 0.0007
+    },
+    "12": {
+      "count": 1,
+      "probability": 0.0007
+    },
+    "14": {
+      "count": 1,
+      "probability": 0.0007
+    }
+  },
+  "double_text_probability": 0.5324,
+  "triple_text_probability": 0.2446,
+  "total_turns": 1390
+}

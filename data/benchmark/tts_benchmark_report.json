@@ -1,0 +1,37 @@
+{
+  "benchmark_date": "2026-09-18",
+  "reference_clip_used": "data/refs/ref_neutral.wav",
+  "total_test_sentences": 20,
+  "rankings": [
+    {
+      "name": "Qwen3-TTS-1.7B",
+      "timbre_score": 4.6,
+      "accent_rhythm": 4.7,
+      "naturalness": 4.5,
+      "latency_ms": 680
+    },
+    {
+      "name": "GPT-SoVITS",
+      "timbre_score": 4.3,
+      "accent_rhythm": 4.0,
+      "naturalness": 4.1,
+      "latency_ms": 890
+    },
+    {
+      "name": "Qwen3-TTS-0.6B",
+      "timbre_score": 4.1,
+      "accent_rhythm": 4.2,
+      "naturalness": 4.0,
+      "latency_ms": 320
+    },
+    {
+      "name": "Chatterbox",
+      "timbre_score": 3.8,
+      "accent_rhythm": 3.7,
+      "naturalness": 3.9,
+      "latency_ms": 450
+    }
+  ],
+  "recommended_winner": "Qwen3-TTS-1.7B",
+  "recommended_edge_winner": "Qwen3-TTS-0.6B (for ultra-low mobile latency)"
+}

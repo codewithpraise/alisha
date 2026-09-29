@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alisha Bubbzieee — Voice Refinery Report</title>
+  <style>
+    :root {
+      --bg: #111210;
+      --card-bg: #1B1C1A;
+      --text: #F2EFE8;
+      --muted: #8A8880;
+      --border: #2C2D2A;
+      --amber: #D4A853;
+      --sage: #5E7A68;
+      --rose: #C47067;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 32px 20px;
+      line-height: 1.5;
+    }
+    .container { max-width: 1080px; margin: 0 auto; }
+    header { margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+    h1 { font-family: "Instrument Serif", Georgia, serif; font-size: 38px; font-weight: normal; color: var(--text); margin-bottom: 8px; }
+    .subtitle { color: var(--muted); font-size: 14px; letter-spacing: 0.05em; }
+    
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .stat-val { font-size: 26px; font-weight: 600; color: var(--amber); margin-bottom: 4px; }
+    .stat-lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .clips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .clip-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      transition: border-color 0.2s;
+    }
+    .clip-card:hover { border-color: #444; }
+    .clip-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .clip-name { font-size: 12px; font-family: monospace; color: var(--muted); }
+    .badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 500; }
+    .audio-wrap audio { width: 100%; height: 32px; margin-bottom: 12px; }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      background: #141513;
+      padding: 8px;
+      border-radius: 6px;
+    }
+    .metric { text-align: center; }
+    .metric .lbl { display: block; font-size: 10px; color: var(--muted); }
+    .metric .val { font-size: 11px; font-weight: 600; color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Alisha Bubbzieee — Voice Refinery</h1>
+      <p class="subtitle">100 CLIPS AUDITED &middot; ZERO EXTERNAL CLOUD &middot; SPEECH QUALITY ANALYSIS</p>
+    </header>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-val">100</div>
+        <div class="stat-lbl">Total Clips</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">31.3m</div>
+        <div class="stat-lbl">Total Speech</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--sage)">98</div>
+        <div class="stat-lbl">Class A (Core)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--amber)">2</div>
+        <div class="stat-lbl">Class B (Natural)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: #A38671">0</div>
+        <div class="stat-lbl">Class C (Paralinguistic)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" style="color: var(--rose)">0</div>
+        <div class="stat-lbl">Class R (Rejected)</div>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterClips('ALL')">All Clips (100)</button>
+      <button class="filter-btn" onclick="filterClips('A')">Class A: Core (98)</button>
+      <button class="filter-btn" onclick="filterClips('B')">Class B: Natural (2)</button>
+      <button class="filter-btn" onclick="filterClips('C')">Class C: Paralinguistic (0)</button>
+      <button class="filter-btn" onclick="filterClips('R')">Class R: Rejected (0)</button>
+    </div>
+
+    <div class="clips-grid" id="clipsGrid">
+      
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1102256372963051.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1102256372963051.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">66.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">40.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1102728112046558.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1102728112046558.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">11.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">23.9 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1106902128276641.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1106902128276641.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">28.3s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">34.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1124858656499804.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1124858656499804.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">18.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">25.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1125435969717032.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1125435969717032.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">4.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">39.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.8 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1152182242910495.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1152182242910495.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">22.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">39.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1166300782230427.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.91)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1166300782230427.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">13.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">46.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1168958751922864.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1168958751922864.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">5.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">23.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1180869180518438.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.87)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1180869180518438.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">5.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">20.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-21.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1191666156166874.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.90)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1191666156166874.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">55.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">46.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1200311002017121.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1200311002017121.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">6.4s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">42.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1211480357481077.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1211480357481077.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">53.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">40.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.8 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1242969967588294.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1242969967588294.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">4.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">54.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1246965424286865.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1246965424286865.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">15.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">52.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1247080237633732.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.98)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1247080237633732.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">5.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">38.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.8 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1263263328564508.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1263263328564508.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">5.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">38.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1278103253999696.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1278103253999696.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">2.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">74.5 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1303735758283391.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1303735758283391.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">17.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">39.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1320633202341785.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1320633202341785.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">14.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">40.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.8 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1323680105919124.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1323680105919124.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">4.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1339295287786203.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1339295287786203.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">60.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">31.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.7 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1367920494789384.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1367920494789384.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">3.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1374859044127888.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1374859044127888.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">11.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">43.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1386611552905331.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.91)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1386611552905331.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">3.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">50.9 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1429594825572141.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1429594825572141.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">6.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">42.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1438278884111686.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.89)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1438278884111686.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">7.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">20.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-21.8 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1449866003269008.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.86)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1449866003269008.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">5.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">53.8 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1453968255884399.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.91)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1453968255884399.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">7.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">22.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.8 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1458350818592295.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1458350818592295.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">12.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">46.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1465028061962602.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.83)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1465028061962602.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">4.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">51.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-28.3 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1499224784558091.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1499224784558091.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">13.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">49.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.3 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1508846270240338.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1508846270240338.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">3.4s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">44.8 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-27.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1510407976648934.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1510407976648934.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">28.4s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">29.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.7 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1511834979942376.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1511834979942376.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">25.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">43.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1524264118925741.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.97)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1524264118925741.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">16.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">28.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1532103147792788.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1532103147792788.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">6.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">36.3 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-27.3 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1534691510956187.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1534691510956187.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">36.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">39.5 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1535561748090412.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1535561748090412.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">26.3s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">35.5 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1535750000946830.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1535750000946830.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">17.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">44.5 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1576806253202733.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1576806253202733.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">19.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">37.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1583972892977879.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1583972892977879.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">21.4s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">48.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-27.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1584999422676332.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1584999422676332.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">3.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">38.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1671531157593461.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1671531157593461.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">15.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">44.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="B">
+          <div class="clip-header">
+            <span class="clip-name">1797741407531009.wav</span>
+            <span class="badge" style="background: #D4A85322; color: #D4A853; border: 1px solid #D4A85344;">Class B (0.72)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1797741407531009.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">9.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">14.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-20.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1804651893779288.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1804651893779288.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">10.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">24.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1870167123674999.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.91)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1870167123674999.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">55.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">52.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1876756223268674.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1876756223268674.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">18.1s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">43.3 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1889580575292482.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1889580575292482.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">32.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">53.9 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1921002235428553.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1921002235428553.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">27.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.3 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1954195245200829.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.90)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1954195245200829.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">3.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">51.3 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-27.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1962096534675873.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1962096534675873.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">27.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">42.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">1977187176416601.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/1977187176416601.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">27.3s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">41.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2047488039345683.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2047488039345683.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">23.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.8 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2097467544114823.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.99)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2097467544114823.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">2.3s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">74.3 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2106340333237368.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2106340333237368.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">39.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">38.5 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.7 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2122853978254840.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2122853978254840.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">30.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">51.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2245621169271986.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2245621169271986.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">15.3s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">30.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2336400673458885.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.90)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2336400673458885.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">23.3s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">44.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2380515879070579.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2380515879070579.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">11.4s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">51.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2418393615300776.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2418393615300776.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">30.1s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">53.8 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2442534722846746.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.88)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2442534722846746.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">86.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.5 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.3 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">24767714766171544.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/24767714766171544.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">3.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">48.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.8 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2489457774858934.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2489457774858934.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">9.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">46.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2681640302217349.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.99)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2681640302217349.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">12.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">31.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-20.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">27080375754880836.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.97)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/27080375754880836.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">8.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">34.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">2765063207022503.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/2765063207022503.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">6.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">36.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">3704781926495558.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/3704781926495558.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">5.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">22.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">4098533317055142.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/4098533317055142.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">2.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">27.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.7 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">4220263631542830.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/4220263631542830.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">17.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">41.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">5191809857710001.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.90)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/5191809857710001.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">7.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">46.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-27.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="B">
+          <div class="clip-header">
+            <span class="clip-name">666382039189526.wav</span>
+            <span class="badge" style="background: #D4A85322; color: #D4A853; border: 1px solid #D4A85344;">Class B (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/666382039189526.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">1.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">74.3 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">675735375589288.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/675735375589288.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">23.1s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">757065903868183.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.89)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/757065903868183.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">26.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">21.9 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-21.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">768814752722871.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/768814752722871.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">39.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">51.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">780868518105469.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/780868518105469.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">9.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">28.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-21.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">781220244738314.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/781220244738314.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">19.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">40.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">781366028073494.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/781366028073494.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">5.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">38.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">788411510688578.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/788411510688578.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">21.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">31.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">791724180153402.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/791724180153402.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">8.4s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">39.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">792193499890998.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/792193499890998.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">10.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">27.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.7 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">798096113348399.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.89)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/798096113348399.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">19.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">55.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">802542409583729.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/802542409583729.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">27.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">49.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">802943512346959.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/802943512346959.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">9.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">39.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-27.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">807974821750413.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/807974821750413.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">51.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">40.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">811912554955330.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.89)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/811912554955330.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">3.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">20.3 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-19.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">819407320874826.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.92)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/819407320874826.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">44.1s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-22.5 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">823834583912959.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/823834583912959.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">25.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">31.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">829351102784410.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/829351102784410.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">29.7s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">32.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.4 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">830628899904145.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.91)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/830628899904145.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">45.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">33.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.3 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">835257022351887.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/835257022351887.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">8.8s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">42.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">848299524833470.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.88)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/848299524833470.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">8.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.4 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-26.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">854041193775886.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.91)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/854041193775886.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">48.6s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">48.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">908795928656562.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.96)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/908795928656562.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">4.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">30.7 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.7 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">922507050649616.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/922507050649616.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">12.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">44.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.0 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">930257046596339.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/930257046596339.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">41.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">43.1 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">937610655800933.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.95)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/937610655800933.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">6.2s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">45.0 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-25.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">945159904681404.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/945159904681404.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">6.5s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">50.2 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.9 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">950603080793712.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.94)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/950603080793712.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">8.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">33.5 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.1 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">976162358405053.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/976162358405053.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">10.9s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">40.8 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-24.6 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+        <div class="clip-card" data-class="A">
+          <div class="clip-header">
+            <span class="clip-name">980022174465971.wav</span>
+            <span class="badge" style="background: #5E7A6822; color: #5E7A68; border: 1px solid #5E7A6844;">Class A (0.93)</span>
+          </div>
+          <div class="audio-wrap">
+            <audio controls preload="none" src="../voice/980022174465971.wav"></audio>
+          </div>
+          <div class="metrics-grid">
+            <div class="metric"><span class="lbl">Duration</span><span class="val">36.0s</span></div>
+            <div class="metric"><span class="lbl">SNR</span><span class="val">51.6 dB</span></div>
+            <div class="metric"><span class="lbl">RMS</span><span class="val">-23.2 dBFS</span></div>
+            <div class="metric"><span class="lbl">Clipping</span><span class="val">0.00%</span></div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+
+  <script>
+    function filterClips(cls) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      document.querySelectorAll('.clip-card').forEach(card => {
+        if (cls === 'ALL' || card.getAttribute('data-class') === cls) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

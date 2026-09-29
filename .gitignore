@@ -1,0 +1,65 @@
+# Gitignore for Alisha LifeOS & Bubbzieee
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# Android build artifacts
+apps/android/app/build/
+apps/android/.gradle/
+apps/android/build/
+.gradle/
+*.apk
+*.aab
+
+# Recursive duplicate directory
+tts_executorch/
+
+# Model weights & large binary files (GitHub 100MB limit)
+*.pt
+*.pte
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+data/checkpoints/
+data/models/
+
+# Generated audio caches & loose test files
+voice/generated/
+apps/web/public/voice/generated/
+*.wav
+*.mp3
+*.aac
+*.mp4
+!voice/*.wav
+!voice_v1/*.wav
+!apps/web/public/voice/*.wav
+test_tasks_temp.db
+
+# Sensitive environment variables
+.env
+.env*.local
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+scratch/

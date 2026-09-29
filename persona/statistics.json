@@ -1,0 +1,36 @@
+{
+  "corpus": {
+    "total_messages": 12928,
+    "alisha_messages": 2786,
+    "user_messages": 10142,
+    "total_turns": 5153,
+    "alisha_turns": 1390,
+    "exemplar_pairs": 1386
+  },
+  "message_length": {
+    "chars": {
+      "min": 1,
+      "median": 15,
+      "mean": 23.7,
+      "p90": 52,
+      "p95": 70,
+      "max": 471
+    },
+    "words": {
+      "median": 3,
+      "mean": 5.1,
+      "p90": 11
+    }
+  },
+  "style": {
+    "emoji_rate": 0.0869,
+    "capitalization_rate": 0.0266,
+    "all_lowercase_rate": 0.9659,
+    "terminal_period_rate": 0.0018,
+    "question_rate": 0.0258
+  },
+  "burst": {
+    "mean_size": 2.004,
+    "double_text_probability": 0.5324
+  }
+}

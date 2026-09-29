@@ -1,0 +1,32 @@
+{
+  "source_zip": "instagram-petiue._.mon-2026-09-18-xk8Ia5uT.zip",
+  "target_thread_folder": "alysha_17891632350299939",
+  "friend_name_decoded": "اليشا",
+  "participants": [
+    "اليشا",
+    "petiue._.mon"
+  ],
+  "total_messages": 7102,
+  "audio_messages": 100,
+  "videos_in_thread": 2,
+  "photos_in_thread": 52,
+  "videos_sent_by_friend": 0,
+  "audio_total_seconds": 1880.547209,
+  "audio_total_minutes": 31.342453483333333,
+  "audio_files_successfully_probe": 100,
+  "audio_files_failed_probe": 0,
+  "audio_codecs": {
+    "aac": 100
+  },
+  "message_date_start_utc": "2025-08-16T10:17:10.526000+00:00",
+  "message_date_end_utc": "2026-04-10T17:04:53.193000+00:00",
+  "friend_text_messages_with_content_excluding_media": 3139,
+  "audio_normalized_count": 100,
+  "audio_normalization_failures": 0,
+  "normalized_format": {
+    "container": "WAV",
+    "sample_rate_hz": 24000,
+    "channels": 1,
+    "sample_format": "PCM_s16le"
+  }
+}

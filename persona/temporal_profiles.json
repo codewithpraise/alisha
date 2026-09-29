@@ -1,0 +1,35 @@
+{
+  "early": {
+    "date_range": {
+      "start": "2025-08-16T17:07:39.830000",
+      "end": "2025-11-13T19:00:44.104000"
+    },
+    "msg_count": 928,
+    "median_length_chars": 13,
+    "mean_length_chars": 18.3,
+    "emoji_rate": 0.0787,
+    "caps_rate": 0.0248
+  },
+  "mid": {
+    "date_range": {
+      "start": "2025-11-13T19:30:17.032000",
+      "end": "2026-03-25T12:10:27.394000"
+    },
+    "msg_count": 929,
+    "median_length_chars": 17,
+    "mean_length_chars": 26.7,
+    "emoji_rate": 0.0958,
+    "caps_rate": 0.0258
+  },
+  "recent": {
+    "date_range": {
+      "start": "2026-03-25T12:10:39.912000",
+      "end": "2026-04-08T15:40:24.110000"
+    },
+    "msg_count": 929,
+    "median_length_chars": 17,
+    "mean_length_chars": 26.2,
+    "emoji_rate": 0.0861,
+    "caps_rate": 0.0291
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "address_terms": [
+    {
+      "term": "sir",
+      "frequency": 23,
+      "rate": 0.0083,
+      "category": "casual"
+    },
+    {
+      "term": "lad",
+      "frequency": 11,
+      "rate": 0.0039,
+      "category": "casual"
+    },
+    {
+      "term": "mate",
+      "frequency": 8,
+      "rate": 0.0029,
+      "category": "casual"
+    },
+    {
+      "term": "bro",
+      "frequency": 4,
+      "rate": 0.0014,
+      "category": "casual"
+    },
+    {
+      "term": "girl",
+      "frequency": 4,
+      "rate": 0.0014,
+      "category": "casual"
+    },
+    {
+      "term": "pookie",
+      "frequency": 2,
+      "rate": 0.0007,
+      "category": "pet_name"
+    },
+    {
+      "term": "babe",
+      "frequency": 2,
+      "rate": 0.0007,
+      "category": "pet_name"
+    },
+    {
+      "term": "cutie",
+      "frequency": 1,
+      "rate": 0.0004,
+      "category": "pet_name"
+    },
+    {
+      "term": "cuh",
+      "frequency": 1,
+      "rate": 0.0004,
+      "category": "casual"
+    }
+  ],
+  "pet_names": [
+    "pookie",
+    "babe",
+    "cutie"
+  ],
+  "casual_address": [
+    "sir",
+    "lad",
+    "mate",
+    "bro",
+    "girl",
+    "cuh"
+  ]
+}
