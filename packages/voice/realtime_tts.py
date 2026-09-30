@@ -1,8 +1,8 @@
 """
 Real-Time Authentic Voice Engine for Alisha.
 Production Implementation:
-Uses Qwen3-TTS 12Hz 1.7B Base with canonical In-Context Learning (ICL) voice cloning.
-Conditioned on genuine Alisha reference audio (voice_v1/reference.wav) + transcript.
+Uses Qwen3-TTS 12Hz 1.7B Base with validated In-Context Learning (ICL) voice cloning.
+Conditioned on Colab-validated prompt item (voice_v1/prompt_item.pt).
 Falls back to Edge TTS ONLY if explicitly permitted by configuration (ALLOW_STOCK_TTS_FALLBACK=true).
 """
 
@@ -10,9 +10,12 @@ import asyncio
 import hashlib
 import os
 import re
+import sys
 import time
 import threading
+from pathlib import Path
 from typing import Optional, Dict, Any, List
+import torch
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 GEN_VOICE_DIR = os.path.join(ROOT, "voice", "generated")
@@ -20,13 +23,25 @@ VOICE_DIR = os.path.join(ROOT, "voice")
 VOICE_V1_DIR = os.path.join(ROOT, "voice_v1")
 os.makedirs(GEN_VOICE_DIR, exist_ok=True)
 
+# ── HARD RUNTIME GUARD: Refuse to run without validated prompt item ───────────
+PROMPT_PATH = Path(VOICE_V1_DIR) / "prompt_item.pt"
+EXPECTED_MD5 = "7beafdc198a0"
+
+if not PROMPT_PATH.exists():
+    raise RuntimeError("prompt_item.pt missing — cannot clone Alisha.")
+
+actual_md5 = hashlib.md5(PROMPT_PATH.read_bytes()).hexdigest()[:12]
+if actual_md5 != EXPECTED_MD5:
+    raise RuntimeError(f"prompt_item.pt md5 mismatch: {actual_md5} != {EXPECTED_MD5}")
+
+from qwen_tts import VoiceClonePromptItem
+sys.modules["__main__"].VoiceClonePromptItem = VoiceClonePromptItem
+
 # Configuration flags
 USE_QWEN_TTS_SERVICE = os.environ.get("USE_QWEN_TTS_SERVICE", "true").lower() in ("true", "1")
 ALLOW_STOCK_TTS_FALLBACK = os.environ.get("ALLOW_STOCK_TTS_FALLBACK", "false").lower() in ("true", "1")
 QWEN_TTS_MODEL_PATH = os.environ.get("QWEN_TTS_MODEL_PATH", r"D:\models\Qwen3-TTS-12Hz-1.7B-Base")
-CANONICAL_PROMPT_PATH = os.path.join(VOICE_V1_DIR, "canonical_icl_prompt.pt")
-REF_AUDIO_PATH = os.path.join(VOICE_V1_DIR, "reference.wav")
-REF_TEXT_DEFAULT = "that's good, im okay. i'm just getting ready for uni tomorrow. don't wanna go, it's so jarring ugh, cuz it's like two to three umm hour travel"
+VALIDATED_PROMPT_ITEM_PATH = str(PROMPT_PATH)
 
 # Authentic Voice Corpus: 100% genuine recordings of Alisha (@iishazsr)
 AUTHENTIC_ALISHA_RECORDINGS = [
@@ -255,18 +270,19 @@ class Qwen3TTSVoiceEngine:
                 dtype=torch.bfloat16
             )
 
-            if os.path.exists(CANONICAL_PROMPT_PATH):
-                print(f"[Qwen3TTS] Loading canonical prompt from: {CANONICAL_PROMPT_PATH}")
-                self.canonical_prompt = torch.load(CANONICAL_PROMPT_PATH, map_location="cpu", weights_only=False)
+            print(f"[Qwen3TTS] Loading validated prompt item from: {VALIDATED_PROMPT_ITEM_PATH}")
+            loaded_item = torch.load(VALIDATED_PROMPT_ITEM_PATH, map_location="cpu", weights_only=False)
+            if not isinstance(loaded_item, list):
+                self.canonical_prompt = [loaded_item]
             else:
-                print(f"[Qwen3TTS] Building canonical prompt from {REF_AUDIO_PATH}...")
-                self.canonical_prompt = self.model.create_voice_clone_prompt(
-                    ref_audio=REF_AUDIO_PATH,
-                    ref_text=REF_TEXT_DEFAULT,
-                    x_vector_only_mode=False
-                )
-                torch.save(self.canonical_prompt, CANONICAL_PROMPT_PATH)
-                print(f"[Qwen3TTS] Saved canonical prompt to: {CANONICAL_PROMPT_PATH}")
+                self.canonical_prompt = loaded_item
+
+            pi = self.canonical_prompt[0]
+            assert pi.icl_mode is True, "prompt_item must have icl_mode=True"
+            assert pi.x_vector_only_mode is False, "prompt_item must have x_vector_only_mode=False"
+            assert pi.ref_code.shape == (150, 16), f"ref_code shape {pi.ref_code.shape} != (150, 16)"
+            assert pi.ref_spk_embedding.shape == (2048,), f"ref_spk_embedding shape {pi.ref_spk_embedding.shape} != (2048,)"
+            print(f"[Qwen3TTS] Validated prompt item ready: icl_mode={pi.icl_mode}, ref_code={list(pi.ref_code.shape)}, ref_spk={list(pi.ref_spk_embedding.shape)}")
 
     def synthesize(self, text: str, speed: float = 1.0) -> Optional[str]:
         import soundfile as sf
